@@ -17,9 +17,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/faq",
     "/heat-pump-calculator",
     "/offers",
+    "/offers/warmer-kiwi-homes",
     "/products",
+    "/products/commercial-heat-pumps",
     "/manufacturers",
+    "/manufacturers/mitsubishi",
     "/locations",
+    "/locations/east-auckland",
   ].map((path) => ({
     url: `${base}${path}`,
     lastModified: now,

@@ -1,19 +1,21 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
-import { PageBanner } from "@/components/shared/PageBanner";
-import { OffersList } from "@/features/offers/components/OffersList";
+import { HeatPumpSpecials } from "@/features/offers/components/HeatPumpSpecials";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Offers",
+  title: "Save Up to 90% on Heat Pumps Auckland | Varcoe Special Offers",
   description:
-    "Current offers and programmes from Varcoe — including Warmer Kiwi Homes — to make heating your Auckland home more affordable.",
+    "Heat pump specials in Auckland — trade in your old unit for cash off, or pay as little as $400 through Warmer Kiwi Homes. Mitsubishi, Daikin & Panasonic, installed by Varcoe.",
   alternates: { canonical: "/offers" },
   openGraph: {
-    title: `Offers | ${siteConfig.name}`,
-    description: "Varcoe offers & programmes for affordable home heating.",
+    title: `Heat Pump Specials | ${siteConfig.name}`,
+    description:
+      "Current heat pump deals in Auckland — trade-in cash, up to 90% off via Warmer Kiwi Homes, and premium brands installed by Varcoe.",
     url: "/offers",
+    images: [{ url: "/og/home.svg", width: 1200, height: 630 }],
   },
+  twitter: { card: "summary_large_image", images: ["/og/home.svg"] },
 };
 
 const breadcrumbJsonLd = {
@@ -39,13 +41,9 @@ export default function OffersPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
-      <PageBanner
-        title="Offers"
-        image={{ src: "/images/home/hero-bg.jpg", alt: "" }}
-      />
       <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Offers" }]} />
 
-      <OffersList />
+      <HeatPumpSpecials />
     </>
   );
 }

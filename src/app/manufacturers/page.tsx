@@ -1,20 +1,22 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
-import { PageBanner } from "@/components/shared/PageBanner";
-import { ManufacturersList } from "@/features/manufacturers/components/ManufacturersList";
+import { ManufacturersOverview } from "@/features/manufacturers/components/ManufacturersOverview";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Manufacturers",
+  title:
+    "Heat Pump Brands We Install — Mitsubishi, Daikin & Panasonic | Varcoe",
   description:
-    "The heat pump and air conditioning brands Varcoe supplies and installs across Auckland — Mitsubishi, Daikin and Panasonic.",
+    "The HVAC & refrigeration brands Varcoe partners with across Auckland — Mitsubishi Electric, Daikin, Panasonic and specialist manufacturers chosen for reliability, energy savings and local support.",
   alternates: { canonical: "/manufacturers" },
   openGraph: {
-    title: `Manufacturers | ${siteConfig.name}`,
+    title: `Manufacturers We Partner With | ${siteConfig.name}`,
     description:
-      "Brands Varcoe supplies & installs — Mitsubishi, Daikin, Panasonic.",
+      "Quality HVAC & refrigeration brands Varcoe installs and services across Auckland — Mitsubishi Electric, Daikin and Panasonic.",
     url: "/manufacturers",
+    images: [{ url: "/og/home.svg", width: 1200, height: 630 }],
   },
+  twitter: { card: "summary_large_image", images: ["/og/home.svg"] },
 };
 
 const breadcrumbJsonLd = {
@@ -40,15 +42,11 @@ export default function ManufacturersPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
-      <PageBanner
-        title="Manufacturers"
-        image={{ src: "/images/home/hero-bg.jpg", alt: "" }}
-      />
       <Breadcrumb
         items={[{ label: "Home", href: "/" }, { label: "Manufacturers" }]}
       />
 
-      <ManufacturersList />
+      <ManufacturersOverview />
     </>
   );
 }
