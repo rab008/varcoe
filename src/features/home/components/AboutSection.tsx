@@ -12,7 +12,7 @@ export function AboutSection() {
             videoId={about.video.videoId}
             title={about.video.title}
           />
-          <div className="pointer-events-none absolute bottom-4 left-4 z-10 rounded-md bg-primary px-5 py-4 text-white shadow-card">
+          <div className="mt-4 rounded-md bg-primary px-5 py-4 text-white shadow-card md:pointer-events-none md:absolute md:bottom-4 md:left-4 md:z-10 md:mt-0">
             <p className="text-2xl font-bold">{about.stat.value}</p>
             <p className="text-sm text-white/80">{about.stat.label}</p>
           </div>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="450" viewBox="0 0 600 450" role="img" aria-label="Placeholder: air conditioning system">
+  <rect width="600" height="450" rx="14" fill="#e6ecfa"/>
+  <rect x="120" y="120" width="360" height="110" rx="12" fill="#ffffff" stroke="#20409a" stroke-width="4"/>
+  <rect x="150" y="152" width="240" height="10" rx="5" fill="#20409a" opacity="0.8"/>
+  <rect x="150" y="182" width="170" height="10" rx="5" fill="#20409a" opacity="0.45"/>
+  <g stroke="#20409a" stroke-width="6" stroke-linecap="round" opacity="0.65">
+    <path d="M170 290 q35 35 70 0 q35 -35 70 0 q35 35 70 0"/>
+    <path d="M170 335 q35 35 70 0 q35 -35 70 0 q35 35 70 0"/>
+  </g>
+</svg>

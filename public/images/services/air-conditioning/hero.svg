@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="560" viewBox="0 0 720 560" role="img" aria-label="Placeholder: air conditioning unit in an Auckland home">
+  <rect width="720" height="560" rx="16" fill="#e6ecfa"/>
+  <rect x="120" y="110" width="480" height="150" rx="14" fill="#ffffff" stroke="#20409a" stroke-width="4"/>
+  <rect x="150" y="150" width="360" height="12" rx="6" fill="#20409a" opacity="0.85"/>
+  <rect x="150" y="186" width="300" height="12" rx="6" fill="#20409a" opacity="0.55"/>
+  <rect x="150" y="222" width="220" height="12" rx="6" fill="#20409a" opacity="0.35"/>
+  <g stroke="#20409a" stroke-width="6" stroke-linecap="round" opacity="0.7">
+    <path d="M210 320 q40 40 80 0 q40 -40 80 0 q40 40 80 0"/>
+    <path d="M210 370 q40 40 80 0 q40 -40 80 0 q40 40 80 0"/>
+    <path d="M210 420 q40 40 80 0 q40 -40 80 0 q40 40 80 0"/>
+  </g>
+  <circle cx="560" cy="380" r="44" fill="#ed1c24" opacity="0.15"/>
+  <path d="M560 352 v56 M532 380 h56" stroke="#ed1c24" stroke-width="6" stroke-linecap="round"/>
+</svg>

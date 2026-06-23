@@ -37,7 +37,9 @@ export async function generateMetadata({
       title: `${service.title} | ${siteConfig.name}`,
       description: service.summary,
       url: `/services/${service.slug}`,
+      images: [{ url: "/og/home.svg", width: 1200, height: 630 }],
     },
+    twitter: { card: "summary_large_image", images: ["/og/home.svg"] },
   };
 }
 

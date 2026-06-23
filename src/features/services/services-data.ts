@@ -313,6 +313,204 @@ export const services: Service[] = [
       "Air conditioning systems designed and installed to your requirements and budget.",
     description:
       "We design and install air conditioning systems tailored to your requirements and budget — single-room, multi-room, ducted, and commercial solutions for homes and businesses across Auckland.",
+    detail: {
+      heroImage: {
+        src: "/images/services/air-conditioning/hero.svg",
+        alt: "Air conditioning unit installed in an Auckland home",
+      },
+      heroTitle: "Auckland Air Conditioning",
+      heroSubtitle: "Heating and Cooling Specialists",
+      videoId: "EPsC2Jojv-s",
+      intro: [
+        "Varcoe Air Conditioning Auckland is your premier choice for air conditioning solutions in Auckland. With years of expertise and a strong presence in the region, we specialise in delivering top-tier air conditioning services tailored to the unique needs of Auckland's climate and architecture. Our commitment to quality, efficiency, and customer satisfaction positions us as your go-to provider for all your air conditioning requirements.",
+        "We supply and install air conditioning from leading manufacturers chosen for Auckland's climate — Mitsubishi Electric, Daikin and Panasonic — with options for everything from a small apartment to a large commercial space.",
+      ],
+      experts: {
+        title: "Auckland's Air Conditioning Specialists",
+        paragraphs: [
+          "Varcoe's professional installation team is composed of local experts familiar with Auckland's specific air conditioning needs. With rigorous training and a wealth of experience, our technicians deliver exceptional service, ensuring your system is installed efficiently and effectively.",
+          "Understanding that every Auckland home and business has unique needs, we specialise in creating customised air conditioning solutions. From the initial consultation to the final installation, we work closely with you to design a system that meets your specific preferences, budget, and the climatic demands of your location.",
+        ],
+      },
+      whyList: {
+        title: "Why Choose Varcoe for Air Conditioning?",
+        lead: "We pair the right system with expert installation and ongoing support:",
+        items: [
+          {
+            label: "Energy Efficiency",
+            text: "Advanced energy-efficient units help Auckland residents save on power bills while reducing their environmental impact.",
+          },
+          {
+            label: "Maintenance & Servicing",
+            text: "Comprehensive maintenance and servicing keep your system running smoothly and efficiently year-round.",
+          },
+          {
+            label: "Warranty & Peace of Mind",
+            text: "Extensive warranties on both products and installation give Auckland customers confidence in their investment.",
+          },
+          {
+            label: "Tailored to Auckland",
+            text: "Customised solutions designed around your space, budget and Auckland's variable climate.",
+          },
+        ],
+      },
+      types: {
+        title: "Types of Air Conditioning Systems",
+        lead: "From a single room to a whole building, there's a system to suit your space:",
+        items: [
+          {
+            name: "Single Room Air Conditioners",
+            description:
+              "Ideal for heating and cooling individual rooms, offering a versatile and energy-efficient option.",
+            image: {
+              src: "/images/services/air-conditioning/placeholder.svg",
+              alt: "Single room air conditioner",
+            },
+            tags: ["Cooling", "Heating"],
+          },
+          {
+            name: "Multi Room Air Conditioners",
+            description:
+              "Perfect for homes without ductwork, allowing you to control the temperature in multiple rooms independently.",
+            image: {
+              src: "/images/services/air-conditioning/placeholder.svg",
+              alt: "Multi room air conditioner",
+            },
+            tags: ["Cooling", "Heating"],
+          },
+          {
+            name: "Floor Consoles & Cassettes",
+            description:
+              "Compact and ideal for anyone wanting the convenience and access of positioning their unit closer to the floor.",
+            image: {
+              src: "/images/services/air-conditioning/placeholder.svg",
+              alt: "Floor console air conditioning unit",
+            },
+            tags: ["Cooling", "Heating"],
+          },
+          {
+            name: "Ducted Whole Home Air Conditioning",
+            description:
+              "A seamless solution for whole-home climate control — ducted systems offer a discreet and efficient way to manage your comfort.",
+            image: {
+              src: "/images/services/air-conditioning/placeholder.svg",
+              alt: "Ducted whole-home air conditioning vent",
+            },
+            tags: ["Cooling", "Heating"],
+          },
+          {
+            name: "Wifi Control Air Conditioning Systems",
+            description:
+              "Pre-heat or cool a room no matter where you are, with smart Wi-Fi control from your phone or tablet.",
+            image: {
+              src: "/images/services/air-conditioning/placeholder.svg",
+              alt: "Wi-Fi controlled air conditioning",
+            },
+            tags: ["Cooling", "Heating"],
+          },
+          {
+            name: "Commercial Air Conditioning",
+            description:
+              "Tailored solutions for businesses and commercial spaces, ensuring optimal working conditions and energy efficiency.",
+            image: {
+              src: "/images/services/air-conditioning/placeholder.svg",
+              alt: "Commercial air conditioning system",
+            },
+            tags: ["Cooling", "Heating"],
+          },
+        ],
+      },
+      infoSections: [
+        {
+          title: "Expert Air Conditioning Installation in Auckland",
+          paragraphs: [
+            "Our installation process is customised to Auckland's unique requirements — from selecting the right unit through to optimising its performance for your space. It includes:",
+          ],
+          points: [
+            {
+              label: "Detailed Site Assessment",
+              text: "We evaluate room sizes, insulation, and sun exposure to determine the best system type and placement.",
+            },
+            {
+              label: "Optimal Placement",
+              text: "Our technicians position your unit for efficiency, airflow, and a clean finish.",
+            },
+            {
+              label: "Smooth, Compliant Installation",
+              text: "Work is carried out safely and to local Auckland standards, with minimal disruption to your routine.",
+            },
+          ],
+          image: {
+            src: "/images/services/air-conditioning/placeholder.svg",
+            alt: "Technician installing an air conditioning unit",
+          },
+        },
+      ],
+      faqs: [
+        {
+          question: "What types of air conditioning systems do you offer?",
+          answer:
+            "We offer a wide range of systems for both residential and commercial properties in Auckland — including split system air conditioners, multi-split systems, ducted air conditioning, and specialised commercial solutions. Each system is chosen for its efficiency, reliability, and suitability to Auckland's climate.",
+        },
+        {
+          question:
+            "How do I know which air conditioning system is right for my home or business?",
+          answer:
+            "Our team conducts a detailed site assessment, considering the size of your space, insulation levels, and sun exposure. Based on that, we recommend the most suitable system for your preferences, needs, and budget.",
+        },
+        {
+          question: "Can you customise a solution for my property?",
+          answer:
+            "Absolutely. We specialise in customised air conditioning solutions tailored to the unique requirements of Auckland homes and businesses — from initial consultation through to final installation.",
+        },
+        {
+          question: "Are your air conditioning units energy-efficient?",
+          answer:
+            "Yes. Energy efficiency is a key factor in our selection of units. We offer models with advanced energy-saving features that reduce your bills and minimise your environmental impact while keeping you comfortable.",
+        },
+        {
+          question: "What is involved in the installation process?",
+          answer:
+            "A comprehensive site assessment, selection of the appropriate system, and professional installation by our expert team — with the best placement for efficiency and aesthetics, and minimal disruption to your daily routine.",
+        },
+        {
+          question: "How often should my air conditioning system be serviced?",
+          answer:
+            "We recommend servicing at least once a year to keep your system running efficiently, prevent potential issues, and extend the lifespan of your unit — especially in Auckland's variable climate.",
+        },
+        {
+          question:
+            "What warranty do you offer on systems and installation services?",
+          answer:
+            "Our products come with extensive manufacturer warranties, and we provide guarantees on our installation services. Specific details vary by product and service, so we're happy to discuss the full details with you directly.",
+        },
+        {
+          question:
+            "How do you ensure safety and compliance during installation?",
+          answer:
+            "Safety and compliance are our top priorities. All installations adhere to strict safety standards and comply with local Auckland regulations, carried out by highly trained and experienced technicians.",
+        },
+        {
+          question:
+            "What makes Varcoe different from other Auckland providers?",
+          answer:
+            "Our commitment to personalised service, customised solutions, and professional expertise — backed by a deep understanding of Auckland's climate and architecture, and a focus on energy efficiency and sustainability.",
+        },
+        {
+          question: "How can I get a quote for an air conditioning system?",
+          answer:
+            "Getting a quote is easy — contact us through our website, email, or phone. We'll arrange a convenient time for a site assessment and consultation, then provide a detailed quote based on your specific needs.",
+        },
+      ],
+      faqsTitle: "FAQs: Air Conditioning in Auckland",
+      closingCta: {
+        title: "Get Started with Varcoe Air Conditioning",
+        body: "Ready for reliable, energy-efficient cooling and heating? Whether it's a single room or a whole building, our Auckland team will recommend the right system, install it properly, and keep it running for years. Get in touch for expert advice and a free quote.",
+        cta: { label: "Get a Free Quote", href: "/contact" },
+      },
+      showBrands: true,
+      showReviews: true,
+    },
   },
   {
     slug: "electrical",
@@ -321,6 +519,194 @@ export const services: Service[] = [
     summary: "Expert electrical services tailored to your needs.",
     description:
       "Our expert team provides electrical services tailored to your needs, from heat pump circuits to general installation work — completed by licensed technicians.",
+    detail: {
+      heroImage: {
+        src: "/images/services/electrical/hero.svg",
+        alt: "Varcoe electrical services in Auckland",
+      },
+      heroTitle: "Expert Electrical Services in Auckland",
+      heroSubtitle:
+        "Trusted Electricians in Auckland — Residential, Commercial & Industrial",
+      videoId: "EPsC2Jojv-s",
+      intro: [
+        "Varcoe — a trusted family-owned business established in 1975 — has built a solid reputation for reliability and excellence across Auckland for electrical services. Our team of expert electricians is skilled, certified and qualified to offer a wide range of electrical services for residential, commercial and industrial clients, compliant with current regulations.",
+        "From installations, maintenance and repairs to safety inspections and lighting, we deliver every job through a transparent process — in-depth consultation, comprehensive site assessment, quality materials and stringent safety protocols — across all Auckland suburbs.",
+      ],
+      experts: {
+        title: "Certified & Qualified Team of Electricians",
+        paragraphs: [
+          "Each electrician on our team holds the necessary licences and certifications to perform a wide range of electrical work, ensuring compliance with safety regulations and standards.",
+          "We invest in continuous training and professional development for our electricians, so clients receive innovative, efficient solutions tailored to their specific needs.",
+        ],
+      },
+      whyList: {
+        title: "Why Choose Varcoe Electrical?",
+        lead: "What sets us apart in Auckland's competitive electrical market:",
+        items: [
+          {
+            label: "Certified & Qualified",
+            text: "Fully licensed electricians for residential, commercial and industrial work.",
+          },
+          {
+            label: "Transparent Pricing",
+            text: "A clear breakdown of all costs upfront — no hidden fees or surprises.",
+          },
+          {
+            label: "Customer Satisfaction",
+            text: "A high rate of repeat business and referrals from delighted clients.",
+          },
+          {
+            label: "Quality Materials",
+            text: "Sourced from reputable suppliers — energy-efficient and long-lasting.",
+          },
+          {
+            label: "Safety First",
+            text: "Stringent safety protocols, with audits and inspections before any work.",
+          },
+          {
+            label: "Auckland-Wide & Guaranteed",
+            text: "Service across all suburbs, with a quality guarantee on all work.",
+          },
+        ],
+      },
+      types: {
+        title: "Our Electrical Services",
+        lead: "Comprehensive electrical solutions for every type of property:",
+        items: [
+          {
+            name: "Residential Electrical",
+            description:
+              "Lighting installations, power-point fittings and switchboard upgrades. Our experienced residential electricians specialise in older homes — prioritising safety and compliance — as well as new-home wiring and fit-outs.",
+            image: {
+              src: "/images/services/electrical/placeholder.svg",
+              alt: "Residential electrical work",
+            },
+            tags: ["Lighting", "Switchboards"],
+          },
+          {
+            name: "Commercial Electrical",
+            description:
+              "Electrical fit-outs, data cabling and energy-efficient lighting for businesses of all sizes. We work to industry standards while minimising downtime, and offer maintenance programs that reduce operating costs and improve safety.",
+            image: {
+              src: "/images/services/electrical/placeholder.svg",
+              alt: "Commercial electrical work",
+            },
+            tags: ["Fit-outs", "Maintenance"],
+          },
+          {
+            name: "Industrial Electrical",
+            description:
+              "Complex installations, machinery upgrades and power-distribution systems for manufacturing, warehousing and production facilities, plus preventative maintenance to reduce downtime and boost productivity.",
+            image: {
+              src: "/images/services/electrical/placeholder.svg",
+              alt: "Industrial electrical work",
+            },
+            tags: ["High-power", "Control panels"],
+          },
+        ],
+      },
+      infoSections: [
+        {
+          title: "Our Process for Delivering Electrical Solutions",
+          paragraphs: [
+            "Every project is delivered with precision and care, through a clear, transparent process:",
+          ],
+          points: [
+            {
+              label: "In-Depth Consultation",
+              text: "We take the time to understand your requirements, budget and timeline before any work begins.",
+            },
+            {
+              label: "Comprehensive Site Assessment",
+              text: "Our electricians identify any risks or challenges upfront so the work is carried out safely and efficiently.",
+            },
+            {
+              label: "Safe, Efficient Execution",
+              text: "We plan proactively for a successful project, minimising disruption to your home or business.",
+            },
+          ],
+          image: {
+            src: "/images/services/electrical/placeholder.svg",
+            alt: "Electrician assessing an installation",
+          },
+        },
+        {
+          title: "Quality Materials & Safety Standards",
+          paragraphs: [
+            "Our commitment to quality and safety runs through every job:",
+          ],
+          points: [
+            {
+              label: "Reputable Suppliers",
+              text: "Materials and equipment sourced from trusted brands known for reliability and quality.",
+            },
+            {
+              label: "Safety Audits",
+              text: "Thorough audits and inspections before any work to identify and mitigate hazards.",
+            },
+            {
+              label: "Compliance",
+              text: "All work meets current New Zealand safety regulations and standards.",
+            },
+          ],
+        },
+      ],
+      faqs: [
+        {
+          question: "What electrical services does Varcoe offer?",
+          answer:
+            "A comprehensive range for residential, commercial and industrial clients — electrical installations, maintenance, repairs, safety inspections, lighting solutions, and much more.",
+        },
+        {
+          question: "Are your electricians certified?",
+          answer:
+            "Yes. All our electricians are fully certified with extensive experience, equipped with the latest knowledge and tools to ensure all work is done safely and efficiently.",
+        },
+        {
+          question: "Can you handle electrical work for new constructions?",
+          answer:
+            "Absolutely. We specialise in electrical installations for new constructions, designed and installed to meet all safety standards, working closely with construction teams for timely, seamless service.",
+        },
+        {
+          question:
+            "Do you provide electrical maintenance for commercial properties?",
+          answer:
+            "Yes. We offer electrical maintenance services for commercial properties, including routine inspections, testing and repairs to keep your systems running smoothly and prevent downtime.",
+        },
+        {
+          question: "What industrial electrical services do you offer?",
+          answer:
+            "High-power installations, machinery wiring, control-panel installation and servicing, preventative maintenance, and safety inspections — tailored to the needs of industrial facilities.",
+        },
+        {
+          question: "Do you provide energy-efficient electrical solutions?",
+          answer:
+            "Yes. We offer LED lighting upgrades, energy audits, and advice on reducing your energy consumption while maintaining optimal performance.",
+        },
+        {
+          question: "How do I schedule an appointment?",
+          answer:
+            "Call us directly or fill out the contact form on our website, and we'll work with you to find a time that suits your schedule.",
+        },
+        {
+          question: "Do you provide quotes for electrical projects?",
+          answer:
+            "Yes — free, no-obligation quotes for all types of electrical projects. Contact us with the details of your project and we'll provide an accurate estimate.",
+        },
+        {
+          question: "Are your electrical services guaranteed?",
+          answer:
+            "Yes. All our electrical services come with a quality guarantee — we stand behind the workmanship of our electricians and ensure all work is performed to the highest standards.",
+        },
+      ],
+      faqsTitle: "FAQs: Electrical Services in Auckland",
+      closingCta: {
+        title: "Get Started with Varcoe Electrical",
+        body: "Need a certified Auckland electrician for a residential, commercial or industrial job? Get in touch for honest advice, transparent pricing and a free, no-obligation quote.",
+        cta: { label: "Get a Free Quote", href: "/contact" },
+      },
+      showBrands: false,
+    },
   },
   {
     slug: "services-maintenance",

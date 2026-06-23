@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="450" viewBox="0 0 600 450" role="img" aria-label="Placeholder: electrical service">
+  <rect width="600" height="450" rx="14" fill="#e6ecfa"/>
+  <rect x="140" y="110" width="320" height="160" rx="12" fill="#ffffff" stroke="#20409a" stroke-width="4"/>
+  <rect x="170" y="145" width="120" height="90" rx="8" fill="#20409a" opacity="0.12"/>
+  <circle cx="205" cy="172" r="9" fill="#20409a" opacity="0.7"/>
+  <circle cx="240" cy="172" r="9" fill="#20409a" opacity="0.7"/>
+  <rect x="320" y="150" width="110" height="10" rx="5" fill="#20409a" opacity="0.7"/>
+  <rect x="320" y="178" width="80" height="10" rx="5" fill="#20409a" opacity="0.4"/>
+  <path d="M300 300 l-30 64 h26 l-14 56 50 -80 h-28 z" fill="#f5b400"/>
+</svg>
