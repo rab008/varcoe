@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="320" viewBox="0 0 480 320" role="img" aria-label="Floor Console placeholder">
+  <rect width="480" height="320" rx="12" fill="#e6ecfa"/>
+  <rect x="170" y="110" width="140" height="70" rx="10" fill="#20409a" opacity="0.35"/>
+  <text x="240" y="296" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#11223b">Floor Console</text>
+</svg>

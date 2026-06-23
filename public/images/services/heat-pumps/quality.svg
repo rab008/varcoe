@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="560" viewBox="0 0 640 560" role="img" aria-label="Placeholder: technician commissioning a heat pump">
+  <rect width="640" height="560" rx="16" fill="#f1f5f9"/>
+  <circle cx="320" cy="230" r="90" fill="#20409a" opacity="0.12"/>
+  <circle cx="320" cy="230" r="44" fill="#20409a" opacity="0.5"/>
+  <text x="320" y="420" text-anchor="middle" font-family="system-ui, sans-serif" font-size="20" font-weight="700" fill="#11223b">Quality — placeholder</text>
+</svg>

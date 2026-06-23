@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="80" viewBox="0 0 220 80" role="img" aria-label="Mitsubishi Electric logo placeholder">
+  <rect width="220" height="80" rx="8" fill="#f1f5f9"/>
+  <g fill="#ed1c24" transform="translate(110 26)">
+    <path d="M0 -8 -9 7 9 7Z"/>
+    <path d="M14 -8 5 7 23 7Z"/>
+    <path d="M-14 -8 -23 7 -5 7Z"/>
+  </g>
+  <text x="110" y="58" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#11223b">MITSUBISHI</text>
+  <text x="110" y="72" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" letter-spacing="1" fill="#64748b">ELECTRIC · placeholder</text>
+</svg>

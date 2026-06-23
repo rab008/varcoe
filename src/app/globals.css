@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens — single source of truth (extracted from the project mockups).
+ * Consume via Tailwind theme utilities (bg-primary, text-ink, rounded-md, …).
+ * Never hardcode brand hex/px in components.
+ */
+@theme {
+  /* Brand */
+  --color-primary: #20409a; /* Varcoe deep blue */
+  --color-primary-dark: #182f73; /* derived hover shade */
+  --color-accent: #f5b400; /* gold — third accent */
+  --color-accent-dark: #d39b00;
+  --color-cta: #ed1c24; /* Varcoe red — CTA / secondary */
+  --color-cta-dark: #c5161d; /* derived hover shade */
+
+  /* Neutrals */
+  --color-ink: #11223b; /* headings / strong text */
+  --color-muted: #64748b; /* body text */
+  --color-surface: #f8fafc; /* light section background */
+  --color-cream: #f5efe6; /* warm off-white — header expert card */
+  --color-dark: #0c1b30; /* footer / dark band */
+  --color-border: #e5e9f0;
+
+  /* Typography */
+  --font-sans: var(--font-app), ui-sans-serif, system-ui, sans-serif;
+
+  /* Radius & elevation */
+  --radius-md: 0.5rem; /* 8px */
+  --radius-lg: 0.75rem; /* 12px — modern cards */
+  --shadow-card: 0 10px 30px rgb(17 34 59 / 0.08);
+  --shadow-lg: 0 20px 45px rgb(17 34 59 / 0.14); /* hover lift */
+}
+
+body {
+  background: #ffffff;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
