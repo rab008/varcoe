@@ -58,7 +58,7 @@ export function HomeHero() {
             </p>
           </div>
 
-          <div className="w-full rounded-lg bg-white/80 p-6 shadow-card backdrop-blur-md sm:p-8 lg:justify-self-end">
+          <div className="w-full rounded-lg bg-white/60 p-6 shadow-card backdrop-blur-md sm:p-8 lg:justify-self-end">
             <ServiceAppointmentForm
               eyebrow="Get in touch"
               heading="Book a Free Quote"
