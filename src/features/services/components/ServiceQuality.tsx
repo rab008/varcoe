@@ -15,7 +15,6 @@ export function ServiceQuality({ quality }: { quality: Quality }) {
             alt={quality.image.alt}
             width={640}
             height={560}
-            unoptimized
             sizes="(max-width: 992px) 100vw, 50vw"
             className="h-auto w-full rounded-md shadow-card"
           />

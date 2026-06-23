@@ -17,7 +17,6 @@ export function ManufacturerPlaceholder({ brand }: { brand: Manufacturer }) {
             src={brand.logo.src}
             alt={brand.logo.alt}
             fill
-            unoptimized
             sizes="12rem"
             className="object-contain object-left"
           />

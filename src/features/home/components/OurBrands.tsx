@@ -23,7 +23,6 @@ export function OurBrands() {
                 alt={brand.image.alt}
                 width={220}
                 height={80}
-                unoptimized
                 className="h-16 w-auto"
               />
               <p className="mt-4 text-xl font-bold text-primary">

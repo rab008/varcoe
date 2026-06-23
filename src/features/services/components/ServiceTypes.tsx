@@ -20,7 +20,6 @@ export function ServiceTypes({ types }: { types: Types }) {
                 src={type.image.src}
                 alt={type.image.alt}
                 fill
-                unoptimized
                 sizes="(max-width: 992px) 100vw, 25vw"
                 className="object-cover transition-transform duration-300 group-hover:scale-105"
               />

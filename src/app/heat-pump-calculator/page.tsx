@@ -88,7 +88,6 @@ export default function HeatPumpCalculatorPage() {
                     src={path.image.src}
                     alt={path.image.alt}
                     fill
-                    unoptimized
                     sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-cover"
                   />
@@ -129,7 +128,6 @@ export default function HeatPumpCalculatorPage() {
                 src={c.why.image.src}
                 alt={c.why.image.alt}
                 fill
-                unoptimized
                 sizes="(max-width: 992px) 100vw, 50vw"
                 className="object-cover"
               />
@@ -232,7 +230,6 @@ export default function HeatPumpCalculatorPage() {
                 src={c.nextSteps.image.src}
                 alt={c.nextSteps.image.alt}
                 fill
-                unoptimized
                 sizes="(max-width: 992px) 100vw, 50vw"
                 className="object-cover"
               />

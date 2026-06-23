@@ -26,7 +26,6 @@ export function ServiceInfoSections({ sections }: { sections: InfoSection[] }) {
                   src={section.image.src}
                   alt={section.image.alt}
                   fill
-                  unoptimized
                   sizes="(max-width: 992px) 100vw, 30vw"
                   className="object-cover"
                 />

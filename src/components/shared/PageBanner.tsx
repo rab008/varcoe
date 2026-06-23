@@ -33,7 +33,6 @@ export function PageBanner({ title, image, children }: PageBannerProps) {
           priority
           sizes="100vw"
           className="-z-10 object-cover"
-          unoptimized={image.src.endsWith(".svg")}
         />
         {/* Brand-blue overlay — solid on the left for legibility, fading right. */}
         <div

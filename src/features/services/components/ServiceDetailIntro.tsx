@@ -17,7 +17,6 @@ export function ServiceDetailIntro({ service }: { service: Service }) {
               src={detail.heroImage.src}
               alt={detail.heroImage.alt}
               fill
-              unoptimized
               priority
               sizes="(max-width: 992px) 100vw, 50vw"
               className="object-cover"

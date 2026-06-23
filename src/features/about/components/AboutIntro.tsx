@@ -44,7 +44,6 @@ export function AboutIntro() {
             alt={aboutIntro.image.alt}
             width={aboutIntro.image.width}
             height={aboutIntro.image.height}
-            unoptimized
             sizes="(max-width: 992px) 100vw, 50vw"
             className="h-auto w-full rounded-md shadow-card"
           />

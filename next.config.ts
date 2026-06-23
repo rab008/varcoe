@@ -8,16 +8,21 @@ import type { NextConfig } from "next";
  */
 const isPages = process.env.GITHUB_PAGES === "true";
 const repo = "varcoe";
+const basePath = isPages ? `/${repo}` : "";
 
 const nextConfig: NextConfig = {
   output: "export",
   trailingSlash: true,
-  basePath: isPages ? `/${repo}` : undefined,
+  basePath: basePath || undefined,
+  // Inlined into the client bundle so the custom image loader can read it.
+  env: { NEXT_PUBLIC_BASE_PATH: basePath },
   images: {
-    unoptimized: true,
-    remotePatterns: [
-      { protocol: "https", hostname: "i.ytimg.com" }, // YouTube video thumbnails
-    ],
+    // GitHub Pages can't run the image optimizer. A custom loader returns the
+    // original asset URL while prepending basePath — next/image omits basePath
+    // for local images on a static export, which 404s under the /varcoe subpath.
+    // (A custom loader, unlike `unoptimized`, is actually invoked.)
+    loader: "custom",
+    loaderFile: "./image-loader.js",
   },
 };
 

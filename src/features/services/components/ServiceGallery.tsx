@@ -26,7 +26,6 @@ export function ServiceGallery({
                   alt={img.alt}
                   width={400}
                   height={300}
-                  unoptimized
                   sizes="(max-width: 992px) 50vw, 25vw"
                   className="h-auto w-full rounded-md shadow-card"
                 />

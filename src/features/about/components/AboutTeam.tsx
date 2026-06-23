@@ -19,7 +19,6 @@ export function AboutTeam() {
                 alt={member.image.alt}
                 width={96}
                 height={96}
-                unoptimized
                 className="h-24 w-24 rounded-full"
               />
               <h3 className="mt-4 text-lg font-semibold text-ink">

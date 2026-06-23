@@ -71,7 +71,6 @@ export default function ServicesPage() {
           alt=""
           width={640}
           height={360}
-          unoptimized
           className="mx-auto h-auto w-full max-w-2xl"
         />
       </Container>

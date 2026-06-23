@@ -38,7 +38,6 @@ export function ServiceClosingCta({ cta }: { cta: ClosingCta }) {
                   fill
                   sizes="(max-width: 992px) 100vw, 50vw"
                   className="object-cover"
-                  unoptimized={cta.image.src.endsWith(".svg")}
                 />
               </div>
             </div>
