@@ -3,8 +3,8 @@ import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { PageBanner } from "@/components/shared/PageBanner";
 import { ManufacturerPlaceholder } from "@/features/manufacturers/components/ManufacturerPlaceholder";
-import { Mitsubishi } from "@/features/manufacturers/components/Mitsubishi";
-import { mitsubishi } from "@/features/manufacturers/mitsubishi-content";
+import { BrandPage } from "@/features/manufacturers/components/BrandPage";
+import { getBrandContent } from "@/features/manufacturers/brand-content";
 import { Testimonials } from "@/features/home/components/Testimonials";
 import { OurBrands } from "@/features/home/components/OurBrands";
 import {
@@ -14,9 +14,6 @@ import {
 import { siteConfig } from "@/lib/site";
 
 type Params = { slug: string };
-
-/** Brand slug with a bespoke, indexable page (rendered instead of the placeholder). */
-const MITSUBISHI = "mitsubishi";
 
 export function generateStaticParams(): Params[] {
   return manufacturerParams();
@@ -31,16 +28,17 @@ export async function generateMetadata({
   const brand = getManufacturer(slug);
   if (!brand) return {};
 
-  if (slug === MITSUBISHI) {
+  // Rich, indexable brand page (Mitsubishi / Daikin / Panasonic). `seo.title` /
+  // `seo.ogTitle` exclude the "| Varcoe" suffix — the root title template adds it.
+  const content = getBrandContent(slug);
+  if (content) {
     return {
-      title: "Mitsubishi Electric Heat Pumps Auckland | Varcoe",
-      description:
-        "Mitsubishi Electric heat pumps & air conditioning, supplied and professionally installed by Varcoe across Auckland. Market-leading technology, an authorised dealer, and brochures for the full range.",
+      title: content.seo.title,
+      description: content.seo.description,
       alternates: { canonical: `/manufacturers/${slug}` },
       openGraph: {
-        title: `Mitsubishi Electric Heat Pumps | ${siteConfig.name}`,
-        description:
-          "Market-leading Mitsubishi Electric heat pumps, installed by Varcoe — Auckland's authorised dealer since 1975.",
+        title: `${content.seo.ogTitle} | ${siteConfig.name}`,
+        description: content.seo.ogDescription,
         url: `/manufacturers/${slug}`,
         images: [{ url: "/og/home.svg", width: 1200, height: 630 }],
       },
@@ -65,6 +63,8 @@ export default async function ManufacturerPage({
   const { slug } = await params;
   const brand = getManufacturer(slug);
   if (!brand) notFound();
+
+  const content = getBrandContent(slug);
 
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
@@ -95,7 +95,7 @@ export default async function ManufacturerPage({
       />
 
       <PageBanner
-        title={slug === MITSUBISHI ? mitsubishi.hero.title : brand.name}
+        title={content?.hero.title ?? brand.name}
         image={{ src: "/images/home/hero-bg.jpg", alt: "" }}
       />
       <Breadcrumb
@@ -108,13 +108,13 @@ export default async function ManufacturerPage({
     </>
   );
 
-  // Bespoke, indexable Mitsubishi page (testimonials + brands composed here at the
-  // app layer, mirroring the service-detail template).
-  if (slug === MITSUBISHI) {
+  // Rich, indexable brand page (testimonials + brands composed here at the app
+  // layer, mirroring the service-detail template). Placeholder for future brands.
+  if (content) {
     return (
       <>
         {banner}
-        <Mitsubishi />
+        <BrandPage content={content} slug={slug} />
         <Testimonials />
         <OurBrands />
       </>

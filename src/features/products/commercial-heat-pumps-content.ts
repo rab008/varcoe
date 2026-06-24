@@ -2,9 +2,11 @@
  * Static content for the `/products/commercial-heat-pumps` page. Single source
  * of truth. Copy from the client brief (cleaned of mojibake/typos).
  *
- * Brochure links point to PDFs currently hosted on varcoe.co.nz (WordPress) —
- * verify or host locally before launch.
+ * All brochures are served locally from public/Brochure (basePath-prefixed via
+ * `assetPath` for the Pages export).
  */
+
+import { assetPath } from "@/lib/asset-path";
 
 export type Brochure = { brand: string; href: string };
 export type CommercialType = {
@@ -14,8 +16,9 @@ export type CommercialType = {
   brochures: Brochure[];
 };
 
-const PANASONIC_RAC =
-  "https://www.varcoe.co.nz/wp-content/uploads/2019/08/Panisonic_Residential-Air-Con_BRO-AC-RAC1920_V3_LR.pdf";
+const PANASONIC_RAC = assetPath(
+  "/Brochure/Panisonic_Residential-Air-Con_BRO-AC-RAC1920_V3_LR.pdf",
+);
 
 export const commercialHeatPumps = {
   intro:
@@ -31,11 +34,11 @@ export const commercialHeatPumps = {
       brochures: [
         {
           brand: "Mitsubishi Electric",
-          href: "https://www.varcoe.co.nz/wp-content/uploads/2019/08/Mitsubishi-HeatPumpRange.pdf",
+          href: assetPath("/Brochure/Mitsubishi-HeatPumpRange.pdf"),
         },
         {
           brand: "Daikin",
-          href: "https://www.varcoe.co.nz/wp-content/uploads/2019/08/Daikin-SplitSystemsBrochureMarch2019.pdf",
+          href: assetPath("/Brochure/Daikin-SplitSystemsBrochureMarch2019.pdf"),
         },
         { brand: "Panasonic", href: PANASONIC_RAC },
       ],
@@ -47,11 +50,11 @@ export const commercialHeatPumps = {
       brochures: [
         {
           brand: "Mitsubishi Electric",
-          href: "https://www.varcoe.co.nz/wp-content/uploads/2019/08/Mitsubishi-CeilingCasette.pdf",
+          href: assetPath("/Brochure/Mitsubishi-CeilingCasette.pdf"),
         },
         {
           brand: "Daikin",
-          href: "https://www.varcoe.co.nz/wp-content/uploads/2019/08/Daikin-FFQ-Fully-Flat-Cassette.pdf",
+          href: assetPath("/Brochure/Daikin-FFQ-Fully-Flat-Cassette.pdf"),
         },
         { brand: "Panasonic", href: PANASONIC_RAC },
       ],
@@ -63,11 +66,11 @@ export const commercialHeatPumps = {
       brochures: [
         {
           brand: "Mitsubishi Electric",
-          href: "https://www.varcoe.co.nz/wp-content/uploads/2019/08/Mitsubishi-MrSlimCommercial.pdf",
+          href: assetPath("/Brochure/Mitsubishi-MrSlimCommercial.pdf"),
         },
         {
           brand: "Daikin",
-          href: "https://www.varcoe.co.nz/wp-content/uploads/2019/08/Daikin-Ducted-Brochure-NZ_LR.pdf",
+          href: assetPath("/Brochure/Daikin-Ducted-Brochure-NZ_LR.pdf"),
         },
         { brand: "Panasonic", href: PANASONIC_RAC },
       ],
@@ -79,11 +82,11 @@ export const commercialHeatPumps = {
       brochures: [
         {
           brand: "Mitsubishi Electric",
-          href: "https://www.varcoe.co.nz/wp-content/uploads/2019/08/Mitsubishi-MrSlimCommercial.pdf",
+          href: assetPath("/Brochure/Mitsubishi-MrSlimCommercial.pdf"),
         },
         {
           brand: "Daikin",
-          href: "https://www.varcoe.co.nz/wp-content/uploads/2019/08/Daikin-SkyAir.pdf",
+          href: assetPath("/Brochure/Daikin-SkyAir.pdf"),
         },
         { brand: "Panasonic", href: PANASONIC_RAC },
       ],

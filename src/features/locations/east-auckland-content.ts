@@ -5,9 +5,25 @@
  * Marketing claims (25+/50+ years, 12,000+ installations, "15+ years",
  * "50% less power") are client-supplied — confirm before launch. Phone/email
  * come from siteConfig (the brief's "0980 270 03" is treated as a typo).
+ *
+ * `seo.title`/`seo.ogTitle` exclude the "| Varcoe" suffix — the root title
+ * template adds it (and the route appends it to the OG title).
  */
 
-export const eastAuckland = {
+import type { LocationContent } from "@/features/locations/location-content";
+
+export const eastAuckland: LocationContent = {
+  name: "East Auckland",
+
+  seo: {
+    title: "Heat Pumps & Air Conditioning East Auckland",
+    description:
+      "Professional heat pump & air conditioning installation across East Auckland — Howick, Botany, Pakuranga and more. 25+ years' experience, 12-month workmanship guarantee. Get a free quote.",
+    ogTitle: "Heat Pumps & Air Conditioning East Auckland",
+    ogDescription:
+      "Premium heat pump & AC installation across East Auckland, backed by a 12-month workmanship guarantee.",
+  },
+
   hero: {
     title: "Heat Pumps & Air Conditioning in East Auckland",
     intro:
@@ -81,4 +97,4 @@ export const eastAuckland = {
     body: "Get professional installation backed by a 12-month workmanship guarantee. Book your free in-home assessment with Varcoe today.",
     cta: { label: "Get a Free Quote", href: "/contact" },
   },
-} as const;
+};

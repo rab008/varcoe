@@ -1,23 +1,28 @@
-/**
- * Static content for the `/manufacturers/mitsubishi` page. Single source of truth.
- * Copy from the client brief (cleaned of mojibake/typos; "210fB" → "21dB").
- *
- * Brochure/store links point to varcoe.co.nz (WordPress PDFs + online store) —
- * verify before launch (the multi-room link in the brief looked malformed).
- * Brand claims ("since 1969", "most popular in NZ") are client-supplied.
- */
+import type { BrandContent } from "@/features/manufacturers/brand-content";
+import { assetPath } from "@/lib/asset-path";
 
-export type MitsuTech = { title: string; text: string };
-export type MitsuProduct = {
-  name: string;
-  description: string;
-  brochureHref: string;
-  image?: { src: string; alt: string };
-};
+/**
+ * Static content for the `/manufacturers/mitsubishi` page. Copy from the client
+ * brief (cleaned of mojibake/typos; "210fB" → "21dB").
+ *
+ * Product brochures are hosted locally (public/Brochure, basePath-prefixed for the
+ * Pages export). The Wi-Fi controller link is a varcoe.co.nz product page (not a
+ * PDF) and the Browse Range store link stay external — verify before launch. Brand
+ * claims ("since 1969", "most popular in NZ") are client-supplied.
+ */
 
 const QUOTE = { label: "Get a Free Quote", href: "/contact" };
 
-export const mitsubishi = {
+export const mitsubishi: BrandContent = {
+  seo: {
+    title: "Mitsubishi Electric Heat Pumps Auckland",
+    description:
+      "Mitsubishi Electric heat pumps & air conditioning, supplied and professionally installed by Varcoe across Auckland. Market-leading technology, an authorised dealer, and brochures for the full range.",
+    ogTitle: "Mitsubishi Electric Heat Pumps",
+    ogDescription:
+      "Market-leading Mitsubishi Electric heat pumps, installed by Varcoe — Auckland's authorised dealer since 1975.",
+  },
+
   hero: {
     eyebrow: "Advanced Technology Meets Comfort",
     title: "Mitsubishi Electric Heat Pumps & Air Conditioning",
@@ -54,7 +59,7 @@ export const mitsubishi = {
         title: "Wi-Fi Control",
         text: "Manage your heat pump from your smartphone, tablet or online account, no matter where you are.",
       },
-    ] satisfies MitsuTech[],
+    ],
   },
 
   dealer: {
@@ -73,29 +78,26 @@ export const mitsubishi = {
         name: "Single Room Heat Pumps & Air Conditioners",
         description:
           "Whether it's burning hot summer days or freezing cold winter nights, Mitsubishi Electric keeps you comfortable. These heat pumps offer up to three times the energy efficiency of conventional heating — cutting your heating costs without blowing your budget. A robust, feature-rich range with contemporary styling that complements any interior, and whisper-quiet because it's Mitsubishi Electric.",
-        brochureHref:
-          "https://www.varcoe.co.nz/wp-content/uploads/2019/08/Mitsubishi-HeatPumpRange.pdf",
+        brochureHref: assetPath("/Brochure/Mitsubishi-HeatPumpRange.pdf"),
       },
       {
         name: "Multi Room Heat Pumps & Air Conditioners",
         description:
           "Select the best models to suit each room in your house and combine them into the perfect system. With some of the quietest systems on the market (from 21dB), the multi-split system reduces the number of outdoor units required — enhancing exterior aesthetics while providing a simple, economical way to add indoor units at any time.",
-        brochureHref:
-          "https://www.varcoe.co.nz/wp-content/uploads/2019/08/MultiRoomSystems.pdf",
+        // Uploaded filename literally includes the leading "@" (flagged: rename for a cleaner URL).
+        brochureHref: assetPath("/Brochure/@MultiRoomSystems.pdf"),
       },
       {
         name: "Floor Consoles & Cassettes",
         description:
           "An ideal replacement for traditional floor-mounted heating appliances such as night-store heaters. Floor consoles and cassette units are designed to sit at floor level or recess into a wall, so they fit perfectly where the old appliance used to be.",
-        brochureHref:
-          "https://www.varcoe.co.nz/wp-content/uploads/2019/08/Mitsubishi-HeatPumpRange.pdf",
+        brochureHref: assetPath("/Brochure/Mitsubishi-HeatPumpRange.pdf"),
       },
       {
         name: "Commercial Heat Pumps",
         description:
           "Mitsubishi Electric's CITY MULTI series has the capability and flexibility to adapt to any building requirement. Even complex configurations are easily managed with a wide line-up of indoor units and flexible piping. Easy to operate, with energy-saving technology, CITY MULTI offers an ideal blend of comfort, efficiency and economy.",
-        brochureHref:
-          "https://www.varcoe.co.nz/wp-content/uploads/2019/08/Mitsubishi-MrSlimCommercial.pdf",
+        brochureHref: assetPath("/Brochure/Mitsubishi-MrSlimCommercial.pdf"),
       },
       {
         name: "Mitsubishi Electric Wi-Fi Heat Pump Controller",
@@ -104,7 +106,7 @@ export const mitsubishi = {
         brochureHref:
           "https://www.varcoe.co.nz/product/mitsubishi-electric-wi-fi-heat-pump-controller/",
       },
-    ] satisfies MitsuProduct[],
+    ],
   },
 
   store: {
@@ -115,4 +117,4 @@ export const mitsubishi = {
       href: "https://www.varcoe.co.nz/product-category/heatpumps/mitsubishi-electric/",
     },
   },
-} as const;
+};
