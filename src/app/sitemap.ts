@@ -5,17 +5,19 @@ import { locationsContent } from "@/features/locations/locations-registry";
 import { productsContent } from "@/features/products/product-content";
 import { installationTypeList } from "@/features/heat-pumps/installation-types";
 import { acSubPageList } from "@/features/air-conditioning/ac-content";
+import { getAllPosts } from "@/features/blog/services/wordpress";
 
 // Required for `output: 'export'` (static GitHub Pages build).
 export const dynamic = "force-static";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = siteConfig.url;
   const now = new Date();
 
   const staticRoutes = [
     "",
     "/about",
+    "/blogs",
     "/service",
     "/service/heat-pumps/size-calculator",
     "/service/heat-pumps/installation",
@@ -64,6 +66,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: now,
   }));
 
+  // Blog posts (build-time fetch from WordPress).
+  const blogRoutes = (await getAllPosts()).map((post) => ({
+    url: `${base}/blogs/${post.slug}`,
+    lastModified: post.dateModifiedISO ?? post.dateISO,
+  }));
+
   return [
     ...staticRoutes,
     ...serviceRoutes,
@@ -71,5 +79,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...productRoutes,
     ...installationTypeRoutes,
     ...acSubPageRoutes,
+    ...blogRoutes,
   ];
 }

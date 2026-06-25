@@ -79,6 +79,7 @@ export function Header({
   };
   const flatLinks: Record<string, FlatLink[]> = {
     "/about": [
+      { label: "Blog", href: "/blogs" },
       { label: "FAQ", href: "/faq" },
       { label: "Contact", href: "/contact" },
     ],
