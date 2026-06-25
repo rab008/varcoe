@@ -4,7 +4,7 @@ import "./globals.css";
 import { TopBar } from "@/components/layout/TopBar";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { siteConfig } from "@/lib/site";
+import { siteConfig, serviceChildren } from "@/lib/site";
 import { services } from "@/features/services/services-data";
 import { offers } from "@/features/offers/offers-data";
 import { products } from "@/features/products/products-data";
@@ -61,6 +61,7 @@ export default function RootLayout({
             title: l.name,
             suburbs: l.suburbs.map((s) => ({ slug: s.slug, title: s.name })),
           }))}
+          serviceChildren={serviceChildren}
         />
         <main className="flex-1">{children}</main>
         <Footer

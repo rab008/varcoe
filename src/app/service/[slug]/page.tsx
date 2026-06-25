@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { PageBanner } from "@/components/shared/PageBanner";
+import { SectionHeading } from "@/components/shared/SectionHeading";
 import { Container } from "@/components/ui/Container";
+import { Icon } from "@/components/ui/Icon";
 import { ServiceSidebar } from "@/features/services/components/ServiceSidebar";
 import { ServiceDetailHero } from "@/features/services/components/ServiceDetailHero";
 import { ServiceInfoVideo } from "@/features/services/components/ServiceInfoVideo";
@@ -13,7 +16,7 @@ import { ServiceInfoSections } from "@/features/services/components/ServiceInfoS
 import { ServiceClosingCta } from "@/features/services/components/ServiceClosingCta";
 import { OurBrands } from "@/features/home/components/OurBrands";
 import { services, getService } from "@/features/services/services-data";
-import { siteConfig } from "@/lib/site";
+import { siteConfig, serviceChildren } from "@/lib/site";
 
 type Params = { slug: string };
 
@@ -32,11 +35,11 @@ export async function generateMetadata({
   return {
     title: service.detail?.heroTitle ?? service.title,
     description: service.summary,
-    alternates: { canonical: `/services/${service.slug}` },
+    alternates: { canonical: `/service/${service.slug}` },
     openGraph: {
       title: `${service.title} | ${siteConfig.name}`,
       description: service.summary,
-      url: `/services/${service.slug}`,
+      url: `/service/${service.slug}`,
       images: [{ url: "/og/home.svg", width: 1200, height: 630 }],
     },
     twitter: { card: "summary_large_image", images: ["/og/home.svg"] },
@@ -68,13 +71,13 @@ export default async function ServiceDetailPage({
           "@type": "ListItem",
           position: 2,
           name: "Services",
-          item: `${siteConfig.url}/services`,
+          item: `${siteConfig.url}/service`,
         },
         {
           "@type": "ListItem",
           position: 3,
           name: service.title,
-          item: `${siteConfig.url}/services/${service.slug}`,
+          item: `${siteConfig.url}/service/${service.slug}`,
         },
       ],
     },
@@ -90,7 +93,7 @@ export default async function ServiceDetailPage({
         url: siteConfig.url,
         telephone: siteConfig.business.phone,
       },
-      url: `${siteConfig.url}/services/${service.slug}`,
+      url: `${siteConfig.url}/service/${service.slug}`,
     },
   ];
 
@@ -122,7 +125,7 @@ export default async function ServiceDetailPage({
       <Breadcrumb
         items={[
           { label: "Home", href: "/" },
-          { label: "Services", href: "/services" },
+          { label: "Services", href: "/service" },
           { label: service.title },
         ]}
       />
@@ -173,6 +176,35 @@ export default async function ServiceDetailPage({
           </div>
         </div>
       </Container>
+
+      {/* Explore this service's sub-pages (when present) */}
+      {serviceChildren[service.slug] &&
+        serviceChildren[service.slug].length > 0 && (
+          <section className="bg-surface py-16 lg:py-24">
+            <Container>
+              <SectionHeading title={`Explore ${service.title}`} />
+              <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {serviceChildren[service.slug].map((child) => (
+                  <li key={child.href}>
+                    <Link
+                      href={child.href}
+                      className="group flex h-full items-center justify-between gap-3 rounded-lg border border-border bg-white p-6 shadow-card transition duration-200 hover:-translate-y-1 hover:border-primary hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                    >
+                      <span className="font-bold text-ink group-hover:text-primary">
+                        {child.label}
+                      </span>
+                      <Icon
+                        name="snowflake"
+                        className="h-5 w-5 shrink-0 text-primary/40"
+                        aria-hidden="true"
+                      />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </Container>
+          </section>
+        )}
 
       {/* Full-width bands below the two-column article (per content document) */}
       {detail?.showBrands && <OurBrands />}

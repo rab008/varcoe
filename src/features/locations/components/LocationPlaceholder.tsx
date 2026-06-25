@@ -50,7 +50,7 @@ export function LocationPlaceholder({
           <Button href="/contact" variant="cta">
             Get a free quote
           </Button>
-          <Button href="/services" variant="outline">
+          <Button href="/service" variant="outline">
             View our services
           </Button>
         </div>

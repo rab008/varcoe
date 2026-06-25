@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Icon } from "@/components/ui/Icon";
-import type { CommercialType } from "@/features/products/commercial-heat-pumps-content";
+import type { CommercialType } from "@/features/products/product-content";
 
 const EXTERNAL = { target: "_blank", rel: "noopener noreferrer" } as const;
 
@@ -51,28 +51,32 @@ export function CommercialTypes({
                 {type.description}
               </p>
 
-              <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-muted">
-                Download Brochures
-              </p>
-              <ul className="mt-2 flex flex-wrap gap-2">
-                {type.brochures.map((b) => (
-                  <li key={b.brand}>
-                    <a
-                      href={b.href}
-                      {...EXTERNAL}
-                      aria-label={`${b.brand} brochure — ${type.name} (PDF, opens in a new tab)`}
-                      className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1 text-xs font-semibold text-ink transition-colors hover:border-primary hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-                    >
-                      <Icon
-                        name="mail"
-                        className="h-3.5 w-3.5 text-cta"
-                        aria-hidden="true"
-                      />
-                      {b.brand}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+              {type.brochures.length > 0 && (
+                <>
+                  <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-muted">
+                    Download Brochures
+                  </p>
+                  <ul className="mt-2 flex flex-wrap gap-2">
+                    {type.brochures.map((b) => (
+                      <li key={b.brand}>
+                        <a
+                          href={b.href}
+                          {...EXTERNAL}
+                          aria-label={`${b.brand} brochure — ${type.name} (PDF, opens in a new tab)`}
+                          className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1 text-xs font-semibold text-ink transition-colors hover:border-primary hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                        >
+                          <Icon
+                            name="mail"
+                            className="h-3.5 w-3.5 text-cta"
+                            aria-hidden="true"
+                          />
+                          {b.brand}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
             </div>
           </li>
         ))}

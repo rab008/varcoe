@@ -6,7 +6,7 @@ import type { Service } from "@/features/services/services-data";
 export function ServiceCard({ service }: { service: Service }) {
   return (
     <Link
-      href={`/services/${service.slug}`}
+      href={`/service/${service.slug}`}
       className="group flex h-full flex-col rounded-lg border border-border bg-white p-6 shadow-card transition duration-200 hover:-translate-y-1 hover:border-primary hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
     >
       <span className="grid h-12 w-12 place-items-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">

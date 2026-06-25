@@ -27,7 +27,7 @@ export const warmerKiwiHomes = {
     bodyBefore:
       "At Varcoe, we're proud to be an approved Warmer Kiwi Homes service provider, helping New Zealanders heat their homes efficiently and affordably. Through this government-backed programme, eligible homeowners can get up to 90% off the cost of a high-quality ",
     bodyLinkLabel: "heat pump installation",
-    bodyLinkHref: "/services/heat-pumps",
+    bodyLinkHref: "/service/heat-pumps",
     bodyAfter: " (funding capped at $3,450 inc GST) by our certified team.",
     primaryCta: { label: "Check Eligibility Now", href: eecaEligibilityUrl },
     secondaryCta: { label: "Get in Touch", href: "/contact" },

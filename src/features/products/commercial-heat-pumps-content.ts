@@ -7,20 +7,25 @@
  */
 
 import { assetPath } from "@/lib/asset-path";
-
-export type Brochure = { brand: string; href: string };
-export type CommercialType = {
-  name: string;
-  description: string;
-  image?: { src: string; alt: string };
-  brochures: Brochure[];
-};
+import type {
+  ProductContent,
+  CommercialType,
+} from "@/features/products/product-content";
 
 const PANASONIC_RAC = assetPath(
   "/Brochure/Panisonic_Residential-Air-Con_BRO-AC-RAC1920_V3_LR.pdf",
 );
 
-export const commercialHeatPumps = {
+export const commercialHeatPumps: ProductContent = {
+  seo: {
+    title: "Commercial Heat Pumps Auckland",
+    description:
+      "Commercial heat pumps & HVAC for Auckland businesses — highwall, ceiling cassette, ducted and commercial HVAC systems from Mitsubishi Electric, Daikin and Panasonic. Supplied, installed and serviced by Varcoe.",
+    ogTitle: "Commercial Heat Pumps",
+    ogDescription:
+      "Commercial heat pump & HVAC systems for Auckland businesses — supplied, installed and serviced by Varcoe.",
+  },
+
   intro:
     "Varcoe supplies, installs and services commercial heat pump and HVAC systems across Auckland — from space-saving highwall units to discreet ceiling cassettes and large-capacity ducted systems. Explore the options below and download manufacturer brochures.",
 
@@ -105,4 +110,4 @@ export const commercialHeatPumps = {
     body: "Varcoe designs, supplies, installs and services commercial heat pump and HVAC systems across Auckland. Get expert advice and a free quote.",
     cta: { label: "Get in Touch", href: "/contact" },
   },
-} as const;
+};

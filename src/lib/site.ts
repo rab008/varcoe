@@ -14,7 +14,7 @@ export const siteConfig = {
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     { label: "Offers", href: "/offers" },
-    { label: "Services", href: "/services" },
+    { label: "Services", href: "/service" },
     { label: "Products", href: "/products" },
     { label: "Manufacturers", href: "/manufacturers" },
     { label: "Locations", href: "/locations" },
@@ -52,3 +52,35 @@ export const siteConfig = {
 } as const;
 
 export type NavItem = (typeof siteConfig.nav)[number];
+
+import { installationTypeList } from "@/features/heat-pumps/installation-types";
+import { acSubPageList } from "@/features/air-conditioning/ac-content";
+
+/** A nav link that can carry its own nested sub-menu (recursive). */
+export type NavLink = { label: string; href: string; children?: NavLink[] };
+
+/**
+ * Sub-menu links shown beneath a service in the Services nav dropdown, keyed by
+ * service slug. Heat Pumps has children (and Installation nests its own
+ * installation-type pages — a 3rd nav level); Air Conditioning has sub-pages.
+ */
+export const serviceChildren: Record<string, NavLink[]> = {
+  "heat-pumps": [
+    {
+      label: "Heat Pump Size Calculator",
+      href: "/service/heat-pumps/size-calculator",
+    },
+    {
+      label: "Heat Pump Installation",
+      href: "/service/heat-pumps/installation",
+      children: installationTypeList.map((t) => ({
+        label: t.navLabel,
+        href: `/service/heat-pumps/installation/${t.slug}`,
+      })),
+    },
+  ],
+  "air-conditioning": acSubPageList.map((p) => ({
+    label: p.navLabel,
+    href: `/service/air-conditioning/${p.slug}`,
+  })),
+};

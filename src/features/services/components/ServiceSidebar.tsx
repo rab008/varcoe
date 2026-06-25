@@ -17,7 +17,7 @@ export function ServiceSidebar({ currentSlug }: { currentSlug: string }) {
         <ul className="overflow-hidden rounded-lg border border-border bg-white shadow-card">
           <li>
             <Link
-              href="/services"
+              href="/service"
               className="flex items-center justify-between gap-2 border-b border-border bg-surface px-5 py-4 font-semibold text-ink transition-colors hover:text-primary"
             >
               View All Services
@@ -32,7 +32,7 @@ export function ServiceSidebar({ currentSlug }: { currentSlug: string }) {
                 className="border-b border-border last:border-b-0"
               >
                 <Link
-                  href={`/services/${service.slug}`}
+                  href={`/service/${service.slug}`}
                   aria-current={active ? "page" : undefined}
                   className={
                     active

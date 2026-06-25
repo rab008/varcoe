@@ -709,31 +709,418 @@ export const services: Service[] = [
     },
   },
   {
-    slug: "services-maintenance",
-    title: "Services & Maintenance",
-    icon: "gear",
+    slug: "annual-heat-pump-service-plan",
+    title: "Annual Heat Pump Service Plan",
+    icon: "wrench",
     summary:
-      "Regular servicing to keep your air conditioner or heat pump running for years.",
+      "Keep your heat pump efficient, reliable and under warranty with a yearly service.",
     description:
-      "All air conditioners and heat pumps need regular maintenance to ensure a long operating life. Our scheduled servicing keeps your system efficient, reliable, and under warranty.",
+      "Varcoe's Annual Heat Pump Service Plan keeps your system running efficiently and reliably, with a professional service every year — scheduled so you never have to remember.",
+    detail: {
+      heroImage: {
+        src: "/images/services/heat-pumps/maintenance.svg",
+        alt: "Varcoe annual heat pump servicing in Auckland",
+      },
+      heroTitle: "Annual Heat Pump Service Plan",
+      heroSubtitle: "Keep your heat pump running efficiently, year after year",
+      intro: [
+        "Like any hard-working appliance, a heat pump performs best with regular care. Over time, filters clog, coils gather dust and performance quietly drops — pushing up your power bill and shortening the life of the unit. Varcoe's Annual Heat Pump Service Plan keeps your system in top condition with a professional service every year.",
+        "We schedule the service for you, carry out a full clean and health check, and keep your heat pump efficient, reliable and within its warranty terms — so it keeps your home comfortable for years to come.",
+      ],
+      experts: {
+        title: "What's Included in a Service",
+        paragraphs: [
+          "Each annual service includes a thorough clean of filters and indoor coils, a check of refrigerant levels and electrical connections, drainage and outdoor-unit inspection, and a full performance test.",
+          "If our technician spots anything that needs attention, you'll get clear advice and an upfront quote — no surprises, no pressure.",
+        ],
+      },
+      whyList: {
+        title: "Why an Annual Service Plan?",
+        lead: "Regular servicing protects your investment and your comfort:",
+        items: [
+          {
+            label: "Lower running costs",
+            text: "A clean, well-tuned heat pump uses less power to deliver the same comfort.",
+          },
+          {
+            label: "Longer lifespan",
+            text: "Regular care helps your system last 15+ years instead of failing early.",
+          },
+          {
+            label: "Warranty protection",
+            text: "Most manufacturers require regular servicing to keep the warranty valid.",
+          },
+          {
+            label: "Healthier air",
+            text: "Clean filters and coils mean cleaner air and less mould and odour.",
+          },
+          {
+            label: "Fewer breakdowns",
+            text: "We catch small issues before they become expensive failures.",
+          },
+          {
+            label: "Scheduled for you",
+            text: "We remind and book you in each year — one less thing to think about.",
+          },
+        ],
+      },
+      infoSections: [
+        {
+          title: "Servicing for Every Heat Pump",
+          paragraphs: [
+            "We service all major brands — including Mitsubishi Electric, Daikin and Panasonic — whether or not we installed the original system.",
+          ],
+          points: [
+            {
+              label: "Single & multi-room systems",
+              text: "High-wall, floor console and multi-split systems serviced and tested.",
+            },
+            {
+              label: "Ducted systems",
+              text: "Whole-home ducted systems checked and cleaned for even performance.",
+            },
+            {
+              label: "Commercial systems",
+              text: "Servicing plans for offices, retail and commercial buildings too.",
+            },
+          ],
+        },
+      ],
+      faqs: [
+        {
+          question: "How often should a heat pump be serviced?",
+          answer:
+            "At least once a year for most homes. Heavily used or commercial systems may benefit from more frequent servicing — we'll recommend the right schedule for you.",
+        },
+        {
+          question: "Do you service heat pumps you didn't install?",
+          answer:
+            "Yes. We service all major brands regardless of who installed them, and can advise if an older system is worth servicing or replacing.",
+        },
+        {
+          question: "Will servicing keep my warranty valid?",
+          answer:
+            "Most manufacturers require regular professional servicing to honour their warranty. Our service plan keeps you compliant and your records in order.",
+        },
+      ],
+      faqsTitle: "FAQs: Heat Pump Servicing in Auckland",
+      closingCta: {
+        title: "Keep Your Heat Pump in Top Condition",
+        body: "Join Varcoe's Annual Heat Pump Service Plan and we'll keep your system efficient, reliable and under warranty. Get in touch for a free quote.",
+        cta: { label: "Get a Free Quote", href: "/contact" },
+      },
+      showBrands: true,
+    },
   },
   {
-    slug: "commercial-refrigeration",
-    title: "Commercial Refrigeration",
-    icon: "snowflake",
+    slug: "switchboard-upgrade",
+    title: "Switchboard Upgrades",
+    icon: "bolt",
     summary:
-      "Design, supply and installation of refrigeration, chillers and process coolers.",
+      "Safer, modern switchboards for homes and businesses across Auckland.",
     description:
-      "We design, supply and install refrigeration systems, milk and wine vats, water chillers, and process coolers for commercial operations throughout Auckland.",
+      "Varcoe's certified electricians upgrade old and overloaded switchboards to safe, modern boards with RCD protection — for homes and businesses across Auckland.",
+    detail: {
+      heroImage: {
+        src: "/images/services/electrical/hero.svg",
+        alt: "Varcoe switchboard upgrades in Auckland",
+      },
+      heroTitle: "Switchboard Upgrades in Auckland",
+      heroSubtitle: "Safer, modern electrical for your home or business",
+      intro: [
+        "Your switchboard is the heart of your home's electrical system — and older boards with ceramic fuses simply weren't built for the demands of a modern home full of appliances, heat pumps and chargers. An overloaded or outdated switchboard is a real safety risk.",
+        "Varcoe's certified electricians upgrade old switchboards to safe, modern boards with RCD (safety switch) protection — protecting your family, your home and your appliances, and bringing your wiring up to current standards.",
+      ],
+      experts: {
+        title: "Certified Auckland Electricians",
+        paragraphs: [
+          "Switchboard work must be carried out by a licensed electrician to be safe and compliant. Every upgrade we do is completed by certified technicians to current New Zealand standards.",
+          "We assess your existing board and electrical load, recommend the right upgrade, and complete the work cleanly with minimal disruption to your power.",
+        ],
+      },
+      whyList: {
+        title: "Signs You Need a Switchboard Upgrade",
+        lead: "It may be time to upgrade if you notice any of these:",
+        items: [
+          {
+            label: "Ceramic or old fuses",
+            text: "Rewireable ceramic fuses instead of modern circuit breakers.",
+          },
+          {
+            label: "No safety switches (RCDs)",
+            text: "Missing RCD protection that guards against electric shock.",
+          },
+          {
+            label: "Frequent tripping",
+            text: "Fuses or breakers that trip often as you add appliances.",
+          },
+          {
+            label: "Adding a heat pump or EV charger",
+            text: "New high-load appliances often need extra capacity.",
+          },
+          {
+            label: "Flickering lights or warm board",
+            text: "Signs of an overloaded or failing switchboard.",
+          },
+          {
+            label: "Renovating an older home",
+            text: "A good time to bring the electrics up to current standards.",
+          },
+        ],
+      },
+      infoSections: [
+        {
+          title: "What's Involved in an Upgrade",
+          points: [
+            {
+              label: "Assessment & quote",
+              text: "We inspect your board and load, then provide a clear, upfront quote.",
+            },
+            {
+              label: "Safe installation",
+              text: "We fit a modern board with circuit breakers and RCD protection.",
+            },
+            {
+              label: "Testing & certification",
+              text: "Everything is tested and certified to current NZ standards.",
+            },
+          ],
+        },
+      ],
+      faqs: [
+        {
+          question: "How long does a switchboard upgrade take?",
+          answer:
+            "Most residential upgrades are completed within a day, with only a short period without power. We'll confirm timing when we quote.",
+        },
+        {
+          question: "Do I legally need RCD safety switches?",
+          answer:
+            "Modern standards require RCD protection on most circuits, and they dramatically reduce the risk of electric shock. We'll make sure your board is compliant and safe.",
+        },
+        {
+          question: "Do you provide a certificate of compliance?",
+          answer:
+            "Yes. All switchboard work is tested and supplied with the appropriate electrical certification.",
+        },
+      ],
+      faqsTitle: "FAQs: Switchboard Upgrades in Auckland",
+      closingCta: {
+        title: "Upgrade to a Safer Switchboard",
+        body: "Protect your home or business with a modern, compliant switchboard. Get in touch with Varcoe's certified electricians for a free quote.",
+        cta: { label: "Get a Free Quote", href: "/contact" },
+      },
+      showBrands: false,
+    },
   },
   {
-    slug: "wine-cellars",
-    title: "Wine Cellars",
-    icon: "wine",
+    slug: "healthy-homes-compliance-for-landlords",
+    title: "Healthy Homes Compliance",
+    icon: "shield",
     summary:
-      "Design, installation and maintenance of domestic and commercial wine cellars.",
+      "Meet the Healthy Homes heating standard with a compliant heat pump.",
     description:
-      "We design, install and maintain wine cellars and refrigeration for both domestic and commercial installations — keeping your collection at the perfect temperature.",
+      "Varcoe helps Auckland landlords meet the Healthy Homes heating standard — sizing and installing a compliant heat pump for the main living room, with the paperwork to prove it.",
+    detail: {
+      heroImage: {
+        src: "/images/services/heat-pumps/hero.svg",
+        alt: "Healthy Homes compliant heat pump installation in Auckland",
+      },
+      heroTitle: "Healthy Homes Compliance for Landlords",
+      heroSubtitle: "Meet the heating standard with the right heat pump",
+      intro: [
+        "Under the Healthy Homes Standards, every rental must have a fixed heating source in the main living room that can heat it to at least 18°C — and for most Auckland homes, an efficient heat pump is the simplest, most cost-effective way to comply.",
+        "Varcoe helps landlords and property managers meet the heating standard with confidence. We calculate the required heating capacity for the room, recommend and install a compliant heat pump, and provide the documentation you need for your records.",
+      ],
+      experts: {
+        title: "Healthy Homes Heating, Sorted",
+        paragraphs: [
+          "The standard isn't just about installing any heater — it requires a heating device of the right capacity for the specific living room, calculated using the Government's formula. Get it wrong and the property isn't compliant.",
+          "We take care of the calculation, the product selection and the installation, so you know the job is done right and your property meets the standard.",
+        ],
+      },
+      whyList: {
+        title: "Why Landlords Choose Varcoe",
+        lead: "Compliance made straightforward for property owners:",
+        items: [
+          {
+            label: "Correct sizing",
+            text: "We calculate the required heating capacity so the room actually complies.",
+          },
+          {
+            label: "Compliant heat pumps",
+            text: "Efficient systems from Mitsubishi, Daikin and Panasonic that meet the standard.",
+          },
+          {
+            label: "Fast, tidy installation",
+            text: "Minimal disruption to tenants and a clean, professional finish.",
+          },
+          {
+            label: "Documentation provided",
+            text: "Capacity details and records to support your compliance statement.",
+          },
+          {
+            label: "Multiple properties",
+            text: "Portfolio landlords and property managers welcome — we'll coordinate access.",
+          },
+          {
+            label: "Low running costs",
+            text: "Efficient heat pumps keep tenants warm without high power bills.",
+          },
+        ],
+      },
+      infoSections: [
+        {
+          title: "The Heating Standard, Explained",
+          paragraphs: [
+            "The Healthy Homes heating standard requires a fixed heater that can warm the main living room to 18°C, sized to the room using the Government's heating-capacity calculation. Not every heater qualifies — open fires and most plug-in heaters don't.",
+          ],
+          points: [
+            {
+              label: "Main living room",
+              text: "The standard applies to the largest living area of the home.",
+            },
+            {
+              label: "Right capacity",
+              text: "The heat pump must meet the calculated heating requirement for that room.",
+            },
+            {
+              label: "Fixed & efficient",
+              text: "A fixed, efficient heat pump is the most popular compliant option.",
+            },
+          ],
+        },
+      ],
+      faqs: [
+        {
+          question: "Does a heat pump meet the Healthy Homes heating standard?",
+          answer:
+            "Yes — provided it's a fixed system sized to meet the required heating capacity for the main living room. We do the calculation and install the right unit so your property complies.",
+        },
+        {
+          question: "Can you help with multiple rental properties?",
+          answer:
+            "Absolutely. We work with landlords and property managers across Auckland and can coordinate installations across a portfolio.",
+        },
+        {
+          question: "Will I get documentation for compliance?",
+          answer:
+            "Yes. We provide the heating-capacity details and installation records you need to support your Healthy Homes compliance statement.",
+        },
+      ],
+      faqsTitle: "FAQs: Healthy Homes Compliance",
+      closingCta: {
+        title: "Make Your Rental Compliant",
+        body: "Meet the Healthy Homes heating standard with a correctly-sized, efficient heat pump. Get in touch with Varcoe for a free quote and compliance advice.",
+        cta: { label: "Get a Free Quote", href: "/contact" },
+      },
+      showBrands: true,
+    },
+  },
+  {
+    slug: "heat-pump-installation-cost-auckland",
+    title: "Heat Pump Installation Cost",
+    icon: "dollar",
+    summary:
+      "What a quality heat pump installation costs in Auckland — and what affects the price.",
+    description:
+      "A clear guide to what affects the cost of a heat pump installation in Auckland, what's included in Varcoe's price, and how to get an accurate, no-obligation quote.",
+    detail: {
+      heroImage: {
+        src: "/images/services/heat-pumps/energy.svg",
+        alt: "Heat pump installation cost guide for Auckland",
+      },
+      heroTitle: "Heat Pump Installation Cost in Auckland",
+      heroSubtitle:
+        "What a quality installation costs — and what affects the price",
+      intro: [
+        "“How much does a heat pump cost to install?” is the question we hear most — and the honest answer is: it depends. The right system for a single bedroom costs very differently from a ducted system for a whole home. Rather than a one-size-fits-all price, we give you an accurate, tailored quote.",
+        "This guide explains what drives the cost of a heat pump installation in Auckland, what's included in our price, and how to get a free, no-obligation quote for your home.",
+      ],
+      experts: {
+        title: "Honest, Transparent Pricing",
+        paragraphs: [
+          "We believe in clear, upfront quotes with no hidden extras. After a quick assessment of your home and needs, you'll get a detailed breakdown of the system and installation — so you know exactly what you're paying for.",
+          "Cheaper isn't always better: a correctly-sized, professionally-installed system runs more efficiently and lasts longer, saving you money over its lifetime.",
+        ],
+      },
+      whyList: {
+        title: "What Affects the Cost",
+        lead: "A few key factors determine your installation price:",
+        items: [
+          {
+            label: "System type",
+            text: "Single-room high-wall units are the most affordable; multi-room and ducted systems cost more.",
+          },
+          {
+            label: "Capacity & room size",
+            text: "Larger rooms and homes need higher-capacity systems.",
+          },
+          {
+            label: "Brand & features",
+            text: "Premium brands and features like Wi-Fi control and air purification add to the price.",
+          },
+          {
+            label: "Installation complexity",
+            text: "Mounting position, pipe runs and electrical work affect the labour involved.",
+          },
+          {
+            label: "Number of rooms",
+            text: "Conditioning several rooms costs more than a single living area.",
+          },
+          {
+            label: "Your home",
+            text: "Access, wall construction and existing wiring can influence the final price.",
+          },
+        ],
+      },
+      infoSections: [
+        {
+          title: "What's Included in Our Price",
+          paragraphs: [
+            "Our quotes are complete — not a headline price with extras bolted on later. A professional installation from Varcoe includes everything needed to get your system running properly.",
+          ],
+          points: [
+            {
+              label: "Supply & installation",
+              text: "The heat pump, mounting, pipe work and a typical 3–4 hour install.",
+            },
+            {
+              label: "Tidy finish",
+              text: "A clean, professional finish and removal of installation waste.",
+            },
+            {
+              label: "Workmanship guarantee",
+              text: "A 12-month workmanship guarantee and after-sales support.",
+            },
+          ],
+        },
+      ],
+      faqs: [
+        {
+          question: "How much does a heat pump cost to install in Auckland?",
+          answer:
+            "It depends on the system and your home. A single-room high-wall unit is the most affordable option, while multi-room and ducted systems cost more. The best way to know is a free, no-obligation quote — we'll assess your home and give you an accurate price.",
+        },
+        {
+          question: "Is the cheapest heat pump the best value?",
+          answer:
+            "Not always. A correctly-sized, professionally-installed system from a trusted brand runs more efficiently and lasts longer, which usually works out cheaper over its lifetime.",
+        },
+        {
+          question: "Are your quotes free?",
+          answer:
+            "Yes — all quotes are free and no-obligation. We'll assess your home, recommend the right system and give you a clear, itemised price.",
+        },
+      ],
+      faqsTitle: "FAQs: Heat Pump Installation Cost",
+      closingCta: {
+        title: "Get an Accurate Heat Pump Quote",
+        body: "The best way to know what your installation will cost is a free, no-obligation quote. Tell us about your home and we'll give you a clear, tailored price.",
+        cta: { label: "Get a Free Quote", href: "/contact" },
+      },
+      showBrands: true,
+    },
   },
 ];
 

@@ -2,6 +2,9 @@ import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site";
 import { services } from "@/features/services/services-data";
 import { locationsContent } from "@/features/locations/locations-registry";
+import { productsContent } from "@/features/products/product-content";
+import { installationTypeList } from "@/features/heat-pumps/installation-types";
+import { acSubPageList } from "@/features/air-conditioning/ac-content";
 
 // Required for `output: 'export'` (static GitHub Pages build).
 export const dynamic = "force-static";
@@ -13,14 +16,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     "",
     "/about",
-    "/services",
+    "/service",
+    "/service/heat-pumps/size-calculator",
+    "/service/heat-pumps/installation",
     "/contact",
     "/faq",
     "/heat-pump-calculator",
     "/offers",
     "/offers/warmer-kiwi-homes",
     "/products",
-    "/products/commercial-heat-pumps",
     "/manufacturers",
     "/manufacturers/mitsubishi",
     "/manufacturers/daikin",
@@ -32,7 +36,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const serviceRoutes = services.map((service) => ({
-    url: `${base}/services/${service.slug}`,
+    url: `${base}/service/${service.slug}`,
     lastModified: now,
   }));
 
@@ -42,5 +46,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: now,
   }));
 
-  return [...staticRoutes, ...serviceRoutes, ...locationRoutes];
+  // Indexable product pages — every slug with bespoke content.
+  const productRoutes = Object.keys(productsContent).map((slug) => ({
+    url: `${base}/products/${slug}`,
+    lastModified: now,
+  }));
+
+  // Heat pump installation type sub-pages.
+  const installationTypeRoutes = installationTypeList.map((t) => ({
+    url: `${base}/service/heat-pumps/installation/${t.slug}`,
+    lastModified: now,
+  }));
+
+  // Air conditioning sub-pages.
+  const acSubPageRoutes = acSubPageList.map((p) => ({
+    url: `${base}/service/air-conditioning/${p.slug}`,
+    lastModified: now,
+  }));
+
+  return [
+    ...staticRoutes,
+    ...serviceRoutes,
+    ...locationRoutes,
+    ...productRoutes,
+    ...installationTypeRoutes,
+    ...acSubPageRoutes,
+  ];
 }

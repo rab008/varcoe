@@ -11,10 +11,11 @@ export type Product = { slug: string; name: string };
 
 export const products: Product[] = [
   { slug: "commercial-heat-pumps", name: "Commercial Heat Pumps" },
+  { slug: "commercial-hvac", name: "Commercial HVAC" },
   { slug: "commercial-refrigeration", name: "Commercial Refrigeration" },
   { slug: "domestic-hvac", name: "Domestic Air Conditioning & Heat Pumps" },
   { slug: "ventilation-systems", name: "Ventilation Systems" },
-  { slug: "commercial-hvac", name: "Commercial Heat Pump" },
+  { slug: "wine-cellars", name: "Wine Cellars" },
   { slug: "reduce-energy-costs", name: "Reduce Energy Costs with Heat Pumps" },
   { slug: "energy-audits", name: "Energy Audits & Efficiency Upgrades" },
 ];

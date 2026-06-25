@@ -15,7 +15,7 @@ type LocationNavItem = { slug: string; title: string; suburbs: NavChild[] };
 const DROPDOWN_HREFS = new Set([
   "/about",
   "/offers",
-  "/services",
+  "/service",
   "/products",
   "/manufacturers",
   "/locations",
@@ -31,12 +31,15 @@ export function Header({
   manufacturers,
   locations,
   offers,
+  serviceChildren = {},
 }: {
   services: NavChild[];
   products: NavChild[];
   manufacturers: NavChild[];
   locations: LocationNavItem[];
   offers: NavChild[];
+  /** Optional sub-menu links per service slug (e.g. heat-pumps → size calculator, installation). */
+  serviceChildren?: Record<string, { label: string; href: string }[]>;
 }) {
   const [open, setOpen] = useState(false);
   // Which desktop dropdown is open (nav href), and which mobile accordion. One each at a time.
@@ -68,7 +71,13 @@ export function Header({
   };
 
   // Flat dropdown menus keyed by nav href (Locations is grouped, handled separately).
-  const flatLinks: Record<string, { label: string; href: string }[]> = {
+  // A flat item may carry `children` (an indented sub-menu) — e.g. Heat Pumps' child pages.
+  type FlatLink = {
+    label: string;
+    href: string;
+    children?: FlatLink[];
+  };
+  const flatLinks: Record<string, FlatLink[]> = {
     "/about": [
       { label: "FAQ", href: "/faq" },
       { label: "Contact", href: "/contact" },
@@ -77,9 +86,13 @@ export function Header({
       { label: "All Offers", href: "/offers" },
       ...offers.map((o) => ({ label: o.title, href: `/offers/${o.slug}` })),
     ],
-    "/services": [
-      { label: "All Services", href: "/services" },
-      ...services.map((s) => ({ label: s.title, href: `/services/${s.slug}` })),
+    "/service": [
+      { label: "All Services", href: "/service" },
+      ...services.map((s) => ({
+        label: s.title,
+        href: `/service/${s.slug}`,
+        children: serviceChildren[s.slug],
+      })),
     ],
     "/products": [
       { label: "All Products", href: "/products" },
@@ -112,7 +125,9 @@ export function Header({
       return (
         <div
           id={menuId}
-          className="grid w-[min(88vw,40rem)] max-w-[calc(100vw-2rem)] grid-cols-2 gap-x-8 gap-y-4 rounded-lg border border-border bg-white p-5 shadow-lg lg:grid-cols-3"
+          // Cap to the viewport below the header and scroll internally so the
+          // panel never runs off the bottom on short laptop screens.
+          className="grid max-h-[calc(100dvh-7rem)] w-[min(88vw,40rem)] max-w-[calc(100vw-2rem)] grid-cols-2 gap-x-8 gap-y-4 overflow-y-auto overscroll-contain rounded-lg border border-border bg-white p-5 shadow-lg lg:grid-cols-3"
         >
           <Link
             href="/locations"
@@ -177,7 +192,9 @@ export function Header({
     return (
       <ul
         id={menuId}
-        className="min-w-56 rounded-lg border border-border bg-white py-2 shadow-lg"
+        // Cap to the viewport below the header and scroll internally so deep
+        // sub-menus (e.g. Services › Installation › types) stay reachable on short screens.
+        className="max-h-[calc(100dvh-7rem)] min-w-56 overflow-y-auto overscroll-contain rounded-lg border border-border bg-white py-2 shadow-lg"
       >
         {(flatLinks[href] ?? []).map((link) => (
           <li key={link.href}>
@@ -189,6 +206,48 @@ export function Header({
             >
               {link.label}
             </Link>
+            {link.children && link.children.length > 0 && (
+              <ul className="ml-4 border-l border-border pl-2">
+                {link.children.map((child) => (
+                  <li key={child.href}>
+                    <Link
+                      href={child.href}
+                      onClick={closeAll}
+                      aria-current={isCurrent(child.href) ? "page" : undefined}
+                      className={`block px-4 py-1.5 text-sm transition-colors focus-visible:bg-surface focus-visible:outline-none ${
+                        isCurrent(child.href)
+                          ? "font-semibold text-primary"
+                          : "text-muted hover:text-primary"
+                      }`}
+                    >
+                      {child.label}
+                    </Link>
+                    {child.children && child.children.length > 0 && (
+                      <ul className="ml-4 border-l border-border pl-2">
+                        {child.children.map((grandchild) => (
+                          <li key={grandchild.href}>
+                            <Link
+                              href={grandchild.href}
+                              onClick={closeAll}
+                              aria-current={
+                                isCurrent(grandchild.href) ? "page" : undefined
+                              }
+                              className={`block px-4 py-1.5 text-xs transition-colors focus-visible:bg-surface focus-visible:outline-none ${
+                                isCurrent(grandchild.href)
+                                  ? "font-semibold text-primary"
+                                  : "text-muted hover:text-primary"
+                              }`}
+                            >
+                              {grandchild.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            )}
           </li>
         ))}
       </ul>
@@ -370,7 +429,9 @@ export function Header({
         <nav
           id="mobile-nav"
           aria-label="Mobile"
-          className="border-t border-border bg-white min-[993px]:hidden"
+          // Cap to the viewport below the TopBar (h-11) + header bar (h-16) and
+          // scroll internally, so deep sub-menus stay reachable on small screens.
+          className="max-h-[calc(100dvh-6.75rem)] overflow-y-auto overscroll-contain border-t border-border bg-white min-[993px]:hidden"
         >
           <Container className="flex flex-col gap-1 py-4">
             {siteConfig.nav.map((item) => {
@@ -529,6 +590,53 @@ export function Header({
                           >
                             {link.label}
                           </Link>
+                          {link.children && link.children.length > 0 && (
+                            <ul className="ml-3 border-l border-border pl-3">
+                              {link.children.map((child) => (
+                                <li key={child.href}>
+                                  <Link
+                                    href={child.href}
+                                    onClick={closeAll}
+                                    aria-current={
+                                      isCurrent(child.href) ? "page" : undefined
+                                    }
+                                    className={`block rounded-md px-3 py-1.5 text-sm ${
+                                      isCurrent(child.href)
+                                        ? "bg-surface font-semibold text-primary"
+                                        : "text-muted hover:bg-surface hover:text-primary"
+                                    }`}
+                                  >
+                                    {child.label}
+                                  </Link>
+                                  {child.children &&
+                                    child.children.length > 0 && (
+                                      <ul className="ml-3 border-l border-border pl-3">
+                                        {child.children.map((grandchild) => (
+                                          <li key={grandchild.href}>
+                                            <Link
+                                              href={grandchild.href}
+                                              onClick={closeAll}
+                                              aria-current={
+                                                isCurrent(grandchild.href)
+                                                  ? "page"
+                                                  : undefined
+                                              }
+                                              className={`block rounded-md px-3 py-1.5 text-xs ${
+                                                isCurrent(grandchild.href)
+                                                  ? "bg-surface font-semibold text-primary"
+                                                  : "text-muted hover:bg-surface hover:text-primary"
+                                              }`}
+                                            >
+                                              {grandchild.label}
+                                            </Link>
+                                          </li>
+                                        ))}
+                                      </ul>
+                                    )}
+                                </li>
+                              ))}
+                            </ul>
+                          )}
                         </li>
                       ))}
                     </ul>

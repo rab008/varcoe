@@ -4,14 +4,17 @@ import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { ServiceAppointmentForm } from "@/features/services/components/ServiceAppointmentForm";
 import { CommercialTypes } from "@/features/products/components/CommercialTypes";
-import { commercialHeatPumps } from "@/features/products/commercial-heat-pumps-content";
 import { products } from "@/features/products/products-data";
-
-const CURRENT_SLUG = "commercial-heat-pumps";
+import type { ProductContent } from "@/features/products/product-content";
 
 /** Left rail: product nav (current highlighted) + a contact CTA card. */
-function ProductSidebar() {
-  const { sidebar } = commercialHeatPumps;
+function ProductSidebar({
+  currentSlug,
+  sidebar,
+}: {
+  currentSlug: string;
+  sidebar: ProductContent["sidebar"];
+}) {
   return (
     <aside className="space-y-8">
       <nav aria-label="Products">
@@ -26,7 +29,7 @@ function ProductSidebar() {
             </Link>
           </li>
           {products.map((product) => {
-            const active = product.slug === CURRENT_SLUG;
+            const active = product.slug === currentSlug;
             return (
               <li
                 key={product.slug}
@@ -61,19 +64,25 @@ function ProductSidebar() {
 }
 
 /**
- * Commercial Heat Pumps product page body — two-column (sidebar + main),
- * mirroring the service-detail template. Static Server Component. Brands and the
- * closing CTA are composed by the route after this component.
+ * Product page body — two-column (sidebar + main), mirroring the service-detail
+ * template. Static Server Component driven by `content`. Brands and the closing
+ * CTA are composed by the route after this component.
  */
-export function CommercialHeatPumps() {
-  const { intro, typesTitle, types } = commercialHeatPumps;
+export function ProductDetail({
+  content,
+  currentSlug,
+}: {
+  content: ProductContent;
+  currentSlug: string;
+}) {
+  const { intro, typesTitle, types, sidebar } = content;
 
   return (
     <Container className="py-12 lg:py-16">
       <div className="grid gap-10 lg:grid-cols-[300px_1fr] lg:gap-12">
         {/* Sidebar — after main in source order on mobile */}
         <div className="order-2 lg:order-1 lg:sticky lg:top-24 lg:self-start">
-          <ProductSidebar />
+          <ProductSidebar currentSlug={currentSlug} sidebar={sidebar} />
         </div>
 
         {/* Main column */}
@@ -84,8 +93,8 @@ export function CommercialHeatPumps() {
 
           <ServiceAppointmentForm
             eyebrow="Get in touch"
-            heading="Request a Commercial Quote"
-            intro="Send us a few details about your building and our Auckland team will be in touch."
+            heading="Request a Quote"
+            intro="Send us a few details and our Auckland team will be in touch."
             note=""
           />
         </div>

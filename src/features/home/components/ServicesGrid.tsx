@@ -23,7 +23,7 @@ export function ServicesGrid() {
         </ul>
         <div className="mt-10 text-center">
           <Link
-            href="/services"
+            href="/service"
             className="inline-block font-semibold text-primary hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
           >
             View all services &rarr;

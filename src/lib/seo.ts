@@ -35,7 +35,7 @@ export function getLocalBusinessJsonLd(): Record<string, unknown> {
       itemOffered: {
         "@type": "Service",
         name: service.title,
-        url: `${siteConfig.url}/services/${service.slug}`,
+        url: `${siteConfig.url}/service/${service.slug}`,
       },
     })),
   };

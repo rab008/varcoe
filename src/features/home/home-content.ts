@@ -26,7 +26,7 @@ export const hero: HeroContent = {
   supporting:
     "Owner-operated since 1975, Varcoe is Auckland's trusted specialist — serving thousands of homes and businesses from Manukau to the North Shore.",
   primaryCta: { label: "Book a Free Quote", href: "/contact" },
-  secondaryCta: { label: "Our Services", href: "/services" },
+  secondaryCta: { label: "Our Services", href: "/service" },
   promo: "12-month workmanship · 5-year parts & labour warranty",
   image: {
     src: "/images/home/hero-bg.jpg",
@@ -83,8 +83,8 @@ export const acHeatPumps: AcHeatPumpsContent = {
   title: "Air Conditioning and Heat Pumps",
   intro:
     "From single rooms to whole homes and commercial spaces — explore the cooling and heating solution that fits your space.",
-  coolingHref: "/services/air-conditioning",
-  heatingHref: "/services/heat-pumps",
+  coolingHref: "/service/air-conditioning",
+  heatingHref: "/service/heat-pumps",
   items: [
     {
       title: "Single Room Air Conditioners",

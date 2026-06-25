@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: "Services",
   description:
     "Heat pumps, air conditioning, electrical, refrigeration and wine cellars — Varcoe designs, installs and services it all across Auckland. Explore our services.",
-  alternates: { canonical: "/services" },
+  alternates: { canonical: "/service" },
 };
 
 const jsonLd = {
@@ -32,7 +32,7 @@ const jsonLd = {
           "@type": "ListItem",
           position: 2,
           name: "Services",
-          item: `${siteConfig.url}/services`,
+          item: `${siteConfig.url}/service`,
         },
       ],
     },
@@ -42,7 +42,7 @@ const jsonLd = {
         "@type": "ListItem",
         position: i + 1,
         name: service.title,
-        url: `${siteConfig.url}/services/${service.slug}`,
+        url: `${siteConfig.url}/service/${service.slug}`,
       })),
     },
   ],

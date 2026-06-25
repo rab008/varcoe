@@ -92,7 +92,7 @@ export function Footer({ services }: { services: ServiceNavItem[] }) {
             {services.map((service) => (
               <li key={service.slug}>
                 <Link
-                  href={`/services/${service.slug}`}
+                  href={`/service/${service.slug}`}
                   className="text-sm text-white/70 transition-colors hover:text-accent"
                 >
                   {service.title}
