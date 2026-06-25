@@ -59,15 +59,14 @@ export type ProcessContent = SectionIntro & { items: ProcessStep[] };
 export type AcHeatPumpCategory = {
   title: string;
   description: string;
+  coolingHref: string;
+  heatingHref: string;
   /** Optional hero image; when absent, render a tokenized placeholder. */
   image?: HomeImage;
 };
 
 export type AcHeatPumpsContent = SectionIntro & {
   items: AcHeatPumpCategory[];
-  /** Shared CTA targets for every card's Cooling/Heating buttons. */
-  coolingHref: string;
-  heatingHref: string;
 };
 
 export type DiagnosticsContent = {

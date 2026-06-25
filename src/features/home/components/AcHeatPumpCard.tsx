@@ -5,21 +5,15 @@ import type { AcHeatPumpCategory } from "@/features/home/types/home";
 
 type AcHeatPumpCardProps = {
   category: AcHeatPumpCategory;
-  coolingHref: string;
-  heatingHref: string;
 };
 
 /**
  * Category card for the homepage Air Conditioning & Heat Pumps section.
  * Server Component — placeholder image, title, description, and two CTAs
- * (Cooling / Heating) linking to the relevant service pages.
+ * (Cooling / Heating). Hrefs come from the category itself.
  */
-export function AcHeatPumpCard({
-  category,
-  coolingHref,
-  heatingHref,
-}: AcHeatPumpCardProps) {
-  const { title, description, image } = category;
+export function AcHeatPumpCard({ category }: AcHeatPumpCardProps) {
+  const { title, description, image, coolingHref, heatingHref } = category;
 
   return (
     <article className="flex h-full flex-col overflow-hidden rounded-lg border border-border bg-white shadow-card">

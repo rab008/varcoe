@@ -20,11 +20,7 @@ export function AcHeatPumps() {
         <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {acHeatPumps.items.map((category) => (
             <li key={category.title}>
-              <AcHeatPumpCard
-                category={category}
-                coolingHref={acHeatPumps.coolingHref}
-                heatingHref={acHeatPumps.heatingHref}
-              />
+              <AcHeatPumpCard category={category} />
             </li>
           ))}
         </ul>

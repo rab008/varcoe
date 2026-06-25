@@ -42,8 +42,10 @@ export default async function BlogArchivePage() {
     <>
       <script
         type="application/ld+json"
-        // First-party, self-authored structured data — sanctioned use.
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        // First-party structured data; escape `<` for script-context safety.
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbJsonLd).replace(/</g, "\\u003c"),
+        }}
       />
 
       <PageBanner

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Icon, type IconName } from "@/components/ui/Icon";
 import { Logo } from "@/components/ui/Logo";
-import { siteConfig } from "@/lib/site";
+import { siteConfig, footerExtraLinks } from "@/lib/site";
 
 type ServiceNavItem = { slug: string; title: string };
 
@@ -10,6 +10,20 @@ const footerSocials: { name: string; href: string; icon: IconName }[] = [
   { name: "Facebook", href: siteConfig.social.facebook, icon: "facebook" },
   { name: "Instagram", href: siteConfig.social.instagram, icon: "instagram" },
   { name: "X", href: siteConfig.social.x, icon: "x" },
+];
+
+// Pages already prominent in the header nav — excluded from the footer
+// "Useful Links" column to avoid duplication.
+const USEFUL_LINKS_EXCLUDE = new Set([
+  "/",
+  "/about",
+  "/service",
+  "/products",
+  "/locations",
+]);
+const usefulLinks = [
+  ...siteConfig.nav.filter((item) => !USEFUL_LINKS_EXCLUDE.has(item.href)),
+  ...footerExtraLinks,
 ];
 
 export function Footer({ services }: { services: ServiceNavItem[] }) {
@@ -73,7 +87,7 @@ export function Footer({ services }: { services: ServiceNavItem[] }) {
         <nav aria-label="Useful links">
           <h2 className="text-base font-bold text-white">Useful Links</h2>
           <ul className="mt-4 space-y-3">
-            {siteConfig.nav.map((item) => (
+            {usefulLinks.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}

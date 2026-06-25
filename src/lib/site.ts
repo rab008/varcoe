@@ -56,8 +56,17 @@ export type NavItem = (typeof siteConfig.nav)[number];
 import { installationTypeList } from "@/features/heat-pumps/installation-types";
 import { acSubPageList } from "@/features/air-conditioning/ac-content";
 
-/** A nav link that can carry its own nested sub-menu (recursive). */
-export type NavLink = { label: string; href: string; children?: NavLink[] };
+/**
+ * A nav link that can carry its own nested sub-menu (recursive).
+ * `grouped` flags a node whose children render as a multi-column grouped panel
+ * (the Locations dropdown), rather than a flat list.
+ */
+export type NavLink = {
+  label: string;
+  href: string;
+  children?: NavLink[];
+  grouped?: boolean;
+};
 
 /**
  * Sub-menu links shown beneath a service in the Services nav dropdown, keyed by
@@ -66,6 +75,8 @@ export type NavLink = { label: string; href: string; children?: NavLink[] };
  */
 export const serviceChildren: Record<string, NavLink[]> = {
   "heat-pumps": [
+    { label: "Single Room", href: "/single-room" },
+    { label: "Multi Room", href: "/multi-room" },
     {
       label: "Heat Pump Size Calculator",
       href: "/service/heat-pumps/size-calculator",
@@ -79,8 +90,28 @@ export const serviceChildren: Record<string, NavLink[]> = {
       })),
     },
   ],
-  "air-conditioning": acSubPageList.map((p) => ({
-    label: p.navLabel,
-    href: `/service/air-conditioning/${p.slug}`,
-  })),
+  "air-conditioning": [
+    { label: "Single Room", href: "/single-room" },
+    { label: "Multi Room", href: "/multi-room" },
+    ...acSubPageList.map((p) => ({
+      label: p.navLabel,
+      href: `/service/air-conditioning/${p.slug}`,
+    })),
+  ],
 };
+
+// The full header navigation tree (`mainNav`) lives in `src/lib/navigation.ts`
+// so the content registries it pulls in never reach the client bundle (this
+// module is imported by the client `Header`). `serviceChildren` above is its
+// building block and is also consumed by the service-detail "Explore" grid.
+
+/**
+ * Extra links shown ONLY in the footer "Useful Links" column (appended after
+ * `siteConfig.nav`). The header navigation is driven by `mainNav` and does not
+ * read these — so these pages are intentionally footer-only.
+ */
+export const footerExtraLinks: NavLink[] = [
+  { label: "Floor Consoles", href: "/floor-consoles" },
+  { label: "Ducted Whole Home Systems", href: "/ducted-whole-home-systems" },
+  { label: "WiFi Control", href: "/wifi-control" },
+];

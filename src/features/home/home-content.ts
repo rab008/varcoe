@@ -78,43 +78,57 @@ export const servicesSection: SectionIntro = {
     "From heat pumps and air conditioning to electrical, refrigeration and wine cellars — Varcoe designs, supplies, installs and maintains it across Auckland.",
 };
 
+// TODO(temporary): every AC/heat-pump card button points here until the
+// dedicated per-category pages exist. Restore unique per-item URLs then.
+const ACHP_TEMP_HREF = "/service/heat-pumps";
+
 export const acHeatPumps: AcHeatPumpsContent = {
   eyebrow: "Find the right system",
   title: "Air Conditioning and Heat Pumps",
   intro:
     "From single rooms to whole homes and commercial spaces — explore the cooling and heating solution that fits your space.",
-  coolingHref: "/service/air-conditioning",
-  heatingHref: "/service/heat-pumps",
   items: [
     {
       title: "Single Room Air Conditioners",
       description:
         "Every home is as individual as its owner. Choosing the wrong size for the room you need to heat can leave you cold and cost you more in power consumption.",
+      coolingHref: '/single-room/',
+      heatingHref: '/single-room/',
     },
     {
       title: "Multi Room Air Conditioners",
       description:
         "Looking to heat and cool multiple rooms but don't want to clutter your exterior area with an outdoor unit for each indoor unit? A multi room heat pump or A/C may be the perfect option for you.",
+      coolingHref: '/multi-room/',
+      heatingHref: '/multi-room/',
     },
     {
       title: "Floor Consoles & Cassettes",
       description:
         "Providing seamless climate control solutions through state-of-the-art, energy-efficient floor-mounted units and ceiling cassettes, tailored to your specific needs and preferences.",
+      coolingHref: '/floor-consoles/',
+      heatingHref: '/floor-consoles/',
     },
     {
       title: "Ducted Whole Home Air Conditioning",
       description:
         "Ducted Central Heat Pump and Air Conditioning Systems are designed to provide whole home central heating or cooling at a constant temperature throughout the whole house.",
+      coolingHref: '/ducted-whole-home-systems/',
+      heatingHref: '/ducted-whole-home-systems/',
     },
     {
       title: "Wifi Control Air Conditioning Systems",
       description:
         "With Mitsubishi Electric WiFi control, you can preheat or cool a room no matter if you're on the way home from work early, running late, or even if you're in a completely different country.",
+      coolingHref: '/wifi-control/',
+      heatingHref: '/wifi-control/',
     },
     {
       title: "Commercial Air Conditioning",
       description:
         "With Varcoe's Commercial Air Conditioning expertise, businesses can experience energy savings, optimal indoor air quality, and expert maintenance for uninterrupted performance.",
+      coolingHref: '/products/commercial-hvac/',
+      heatingHref: '/products/commercial-hvac/',
     },
   ],
 };
