@@ -119,8 +119,11 @@ export default async function BlogPostPage({
     <>
       <script
         type="application/ld+json"
-        // First-party, self-authored structured data — sanctioned use.
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        // First-party structured data; escape `<` so WP-derived fields can't
+        // break out of the script context.
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
       />
 
       <PageBanner

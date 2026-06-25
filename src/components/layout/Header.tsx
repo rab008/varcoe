@@ -7,40 +7,15 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/ui/Logo";
 import { Icon } from "@/components/ui/Icon";
-import { siteConfig } from "@/lib/site";
+import { siteConfig, type NavLink } from "@/lib/site";
 
-type NavChild = { slug: string; title: string };
-type LocationNavItem = { slug: string; title: string; suburbs: NavChild[] };
-
-const DROPDOWN_HREFS = new Set([
-  "/about",
-  "/offers",
-  "/service",
-  "/products",
-  "/manufacturers",
-  "/locations",
-]);
-
-// Items moved into the "About" dropdown — hidden from the top-level header nav
-// (still present in the footer via siteConfig.nav).
-const DEMOTED_HREFS = new Set(["/faq", "/contact"]);
-
-export function Header({
-  services,
-  products,
-  manufacturers,
-  locations,
-  offers,
-  serviceChildren = {},
-}: {
-  services: NavChild[];
-  products: NavChild[];
-  manufacturers: NavChild[];
-  locations: LocationNavItem[];
-  offers: NavChild[];
-  /** Optional sub-menu links per service slug (e.g. heat-pumps → size calculator, installation). */
-  serviceChildren?: Record<string, { label: string; href: string }[]>;
-}) {
+/**
+ * Pure renderer for the site navigation. All menu data — top-level items and
+ * every dropdown/sub-menu — comes from the single `nav` tree (`mainNav` in
+ * `src/lib/site.ts`). An item has a dropdown when it has `children`; a `grouped`
+ * item renders its children as a multi-column panel (Locations).
+ */
+export function Header({ nav }: { nav: NavLink[] }) {
   const [open, setOpen] = useState(false);
   // Which desktop dropdown is open (nav href), and which mobile accordion. One each at a time.
   const [openMenu, setOpenMenu] = useState<string | null>(null);
@@ -70,44 +45,6 @@ export function Header({
     setMobileOpenMenu(null);
   };
 
-  // Flat dropdown menus keyed by nav href (Locations is grouped, handled separately).
-  // A flat item may carry `children` (an indented sub-menu) — e.g. Heat Pumps' child pages.
-  type FlatLink = {
-    label: string;
-    href: string;
-    children?: FlatLink[];
-  };
-  const flatLinks: Record<string, FlatLink[]> = {
-    "/about": [
-      { label: "Blog", href: "/blogs" },
-      { label: "FAQ", href: "/faq" },
-      { label: "Contact", href: "/contact" },
-    ],
-    "/offers": [
-      { label: "All Offers", href: "/offers" },
-      ...offers.map((o) => ({ label: o.title, href: `/offers/${o.slug}` })),
-    ],
-    "/service": [
-      { label: "All Services", href: "/service" },
-      ...services.map((s) => ({
-        label: s.title,
-        href: `/service/${s.slug}`,
-        children: serviceChildren[s.slug],
-      })),
-    ],
-    "/products": [
-      { label: "All Products", href: "/products" },
-      ...products.map((p) => ({ label: p.title, href: `/products/${p.slug}` })),
-    ],
-    "/manufacturers": [
-      { label: "All Manufacturers", href: "/manufacturers" },
-      ...manufacturers.map((m) => ({
-        label: m.title,
-        href: `/manufacturers/${m.slug}`,
-      })),
-    ],
-  };
-
   const navLinkClass = (active: boolean) =>
     `text-sm font-semibold transition-colors hover:text-primary ${
       active ? "text-primary" : "text-ink"
@@ -121,8 +58,8 @@ export function Header({
     }`;
 
   // Desktop dropdown panel body (flat list for Services, grouped for Locations).
-  const renderDesktopPanel = (href: string, menuId: string) => {
-    if (href === "/locations") {
+  const renderDesktopPanel = (item: NavLink, menuId: string) => {
+    if (item.grouped) {
       return (
         <div
           id={menuId}
@@ -131,61 +68,55 @@ export function Header({
           className="grid max-h-[calc(100dvh-7rem)] w-[min(88vw,40rem)] max-w-[calc(100vw-2rem)] grid-cols-2 gap-x-8 gap-y-4 overflow-y-auto overscroll-contain rounded-lg border border-border bg-white p-5 shadow-lg lg:grid-cols-3"
         >
           <Link
-            href="/locations"
+            href={item.href}
             onClick={closeAll}
-            aria-current={isCurrent("/locations") ? "page" : undefined}
+            aria-current={isCurrent(item.href) ? "page" : undefined}
             className={`col-span-full border-b border-border pb-2 text-sm font-semibold ${
-              isCurrent("/locations")
+              isCurrent(item.href)
                 ? "text-primary"
                 : "text-ink hover:text-primary"
             }`}
           >
-            All Locations
+            {`All ${item.label}`}
           </Link>
-          {locations.map((area) => {
-            const areaHref = `/locations/${area.slug}`;
-            return (
-              <div key={area.slug}>
-                <Link
-                  href={areaHref}
-                  onClick={closeAll}
-                  aria-current={isCurrent(areaHref) ? "page" : undefined}
-                  className={`block text-sm font-semibold ${
-                    isCurrent(areaHref)
-                      ? "text-primary"
-                      : "text-ink hover:text-primary"
-                  }`}
-                >
-                  {area.title}
-                </Link>
-                {area.suburbs.length > 0 && (
-                  <ul className="mt-1.5 space-y-1">
-                    {area.suburbs.map((suburb) => {
-                      const subHref = `${areaHref}/${suburb.slug}`;
-                      return (
-                        <li key={suburb.slug}>
-                          <Link
-                            href={subHref}
-                            onClick={closeAll}
-                            aria-current={
-                              isCurrent(subHref) ? "page" : undefined
-                            }
-                            className={`block text-sm transition-colors ${
-                              isCurrent(subHref)
-                                ? "font-semibold text-primary"
-                                : "text-muted hover:text-primary"
-                            }`}
-                          >
-                            {suburb.title}
-                          </Link>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                )}
-              </div>
-            );
-          })}
+          {(item.children ?? []).map((area) => (
+            <div key={area.href}>
+              <Link
+                href={area.href}
+                onClick={closeAll}
+                aria-current={isCurrent(area.href) ? "page" : undefined}
+                className={`block text-sm font-semibold ${
+                  isCurrent(area.href)
+                    ? "text-primary"
+                    : "text-ink hover:text-primary"
+                }`}
+              >
+                {area.label}
+              </Link>
+              {area.children && area.children.length > 0 && (
+                <ul className="mt-1.5 space-y-1">
+                  {area.children.map((suburb) => (
+                    <li key={suburb.href}>
+                      <Link
+                        href={suburb.href}
+                        onClick={closeAll}
+                        aria-current={
+                          isCurrent(suburb.href) ? "page" : undefined
+                        }
+                        className={`block text-sm transition-colors ${
+                          isCurrent(suburb.href)
+                            ? "font-semibold text-primary"
+                            : "text-muted hover:text-primary"
+                        }`}
+                      >
+                        {suburb.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ))}
         </div>
       );
     }
@@ -197,7 +128,7 @@ export function Header({
         // sub-menus (e.g. Services › Installation › types) stay reachable on short screens.
         className="max-h-[calc(100dvh-7rem)] min-w-56 overflow-y-auto overscroll-contain rounded-lg border border-border bg-white py-2 shadow-lg"
       >
-        {(flatLinks[href] ?? []).map((link) => (
+        {(item.children ?? []).map((link) => (
           <li key={link.href}>
             <Link
               href={link.href}
@@ -287,9 +218,8 @@ export function Header({
         {/* Primary nav — desktop only (> 992px) */}
         <nav aria-label="Primary" className="hidden min-[993px]:block">
           <ul className="flex items-center gap-6">
-            {siteConfig.nav.map((item) => {
-              if (DEMOTED_HREFS.has(item.href)) return null;
-              if (!DROPDOWN_HREFS.has(item.href)) {
+            {nav.map((item) => {
+              if (!item.children || item.children.length === 0) {
                 return (
                   <li key={item.href}>
                     <Link
@@ -359,10 +289,10 @@ export function Header({
                   <div
                     hidden={!isOpen}
                     className={`absolute top-full pt-3 ${
-                      item.href === "/locations" ? "right-0" : "left-0"
+                      item.grouped ? "right-0" : "left-0"
                     }`}
                   >
-                    {renderDesktopPanel(item.href, menuId)}
+                    {renderDesktopPanel(item, menuId)}
                   </div>
                 </li>
               );
@@ -435,9 +365,8 @@ export function Header({
           className="max-h-[calc(100dvh-6.75rem)] overflow-y-auto overscroll-contain border-t border-border bg-white min-[993px]:hidden"
         >
           <Container className="flex flex-col gap-1 py-4">
-            {siteConfig.nav.map((item) => {
-              if (DEMOTED_HREFS.has(item.href)) return null;
-              if (!DROPDOWN_HREFS.has(item.href)) {
+            {nav.map((item) => {
+              if (!item.children || item.children.length === 0) {
                 return (
                   <Link
                     key={item.href}
@@ -457,7 +386,7 @@ export function Header({
 
               const isOpen = mobileOpenMenu === item.href;
               const subId = `mobile-${item.href.slice(1)}`;
-              const isLocations = item.href === "/locations";
+              const isLocations = item.grouped ?? false;
               return (
                 <div key={item.href}>
                   <div className="flex items-center justify-between">
@@ -507,67 +436,59 @@ export function Header({
                       className="ml-3 border-l border-border pl-3"
                     >
                       <Link
-                        href="/locations"
+                        href={item.href}
                         onClick={closeAll}
-                        aria-current={
-                          isCurrent("/locations") ? "page" : undefined
-                        }
+                        aria-current={isCurrent(item.href) ? "page" : undefined}
                         className={`block rounded-md px-3 py-2 text-sm font-semibold ${
-                          isCurrent("/locations")
+                          isCurrent(item.href)
                             ? "bg-surface text-primary"
                             : "text-ink hover:bg-surface hover:text-primary"
                         }`}
                       >
-                        All Locations
+                        All {item.label}
                       </Link>
-                      {locations.map((area) => {
-                        const areaHref = `/locations/${area.slug}`;
-                        return (
-                          <div key={area.slug} className="mt-1">
-                            <Link
-                              href={areaHref}
-                              onClick={closeAll}
-                              aria-current={
-                                isCurrent(areaHref) ? "page" : undefined
-                              }
-                              className={`block rounded-md px-3 py-2 text-sm font-semibold ${
-                                isCurrent(areaHref)
-                                  ? "bg-surface text-primary"
-                                  : "text-ink hover:bg-surface hover:text-primary"
-                              }`}
-                            >
-                              {area.title}
-                            </Link>
-                            {area.suburbs.length > 0 && (
-                              <ul className="ml-3 border-l border-border pl-3">
-                                {area.suburbs.map((suburb) => {
-                                  const subHref = `${areaHref}/${suburb.slug}`;
-                                  return (
-                                    <li key={suburb.slug}>
-                                      <Link
-                                        href={subHref}
-                                        onClick={closeAll}
-                                        aria-current={
-                                          isCurrent(subHref)
-                                            ? "page"
-                                            : undefined
-                                        }
-                                        className={`block rounded-md px-3 py-1.5 text-sm ${
-                                          isCurrent(subHref)
-                                            ? "bg-surface font-semibold text-primary"
-                                            : "text-muted hover:bg-surface hover:text-primary"
-                                        }`}
-                                      >
-                                        {suburb.title}
-                                      </Link>
-                                    </li>
-                                  );
-                                })}
-                              </ul>
-                            )}
-                          </div>
-                        );
-                      })}
+                      {(item.children ?? []).map((area) => (
+                        <div key={area.href} className="mt-1">
+                          <Link
+                            href={area.href}
+                            onClick={closeAll}
+                            aria-current={
+                              isCurrent(area.href) ? "page" : undefined
+                            }
+                            className={`block rounded-md px-3 py-2 text-sm font-semibold ${
+                              isCurrent(area.href)
+                                ? "bg-surface text-primary"
+                                : "text-ink hover:bg-surface hover:text-primary"
+                            }`}
+                          >
+                            {area.label}
+                          </Link>
+                          {area.children && area.children.length > 0 && (
+                            <ul className="ml-3 border-l border-border pl-3">
+                              {area.children.map((suburb) => (
+                                <li key={suburb.href}>
+                                  <Link
+                                    href={suburb.href}
+                                    onClick={closeAll}
+                                    aria-current={
+                                      isCurrent(suburb.href)
+                                        ? "page"
+                                        : undefined
+                                    }
+                                    className={`block rounded-md px-3 py-1.5 text-sm ${
+                                      isCurrent(suburb.href)
+                                        ? "bg-surface font-semibold text-primary"
+                                        : "text-muted hover:bg-surface hover:text-primary"
+                                    }`}
+                                  >
+                                    {suburb.label}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                        </div>
+                      ))}
                     </div>
                   ) : (
                     <ul
@@ -575,7 +496,7 @@ export function Header({
                       hidden={!isOpen}
                       className="ml-3 border-l border-border pl-3"
                     >
-                      {(flatLinks[item.href] ?? []).map((link) => (
+                      {(item.children ?? []).map((link) => (
                         <li key={link.href}>
                           <Link
                             href={link.href}

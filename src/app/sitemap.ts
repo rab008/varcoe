@@ -5,6 +5,7 @@ import { locationsContent } from "@/features/locations/locations-registry";
 import { productsContent } from "@/features/products/product-content";
 import { installationTypeList } from "@/features/heat-pumps/installation-types";
 import { acSubPageList } from "@/features/air-conditioning/ac-content";
+import { roomTypeSlugs } from "@/features/heat-pumps/room-types";
 import { getAllPosts } from "@/features/blog/services/wordpress";
 
 // Required for `output: 'export'` (static GitHub Pages build).
@@ -66,6 +67,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: now,
   }));
 
+  // Top-level heat-pump configuration pages (single-room, multi-room).
+  const roomTypeRoutes = roomTypeSlugs.map((slug) => ({
+    url: `${base}/${slug}`,
+    lastModified: now,
+  }));
+
   // Blog posts (build-time fetch from WordPress).
   const blogRoutes = (await getAllPosts()).map((post) => ({
     url: `${base}/blogs/${post.slug}`,
@@ -79,6 +86,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...productRoutes,
     ...installationTypeRoutes,
     ...acSubPageRoutes,
+    ...roomTypeRoutes,
     ...blogRoutes,
   ];
 }

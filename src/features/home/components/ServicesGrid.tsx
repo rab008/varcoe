@@ -15,7 +15,8 @@ export function ServicesGrid() {
           intro={servicesSection.intro}
         />
         <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => (
+          {/* Homepage features a maximum of 6 services; the full list lives on /service. */}
+          {services.slice(0, 6).map((service) => (
             <li key={service.slug}>
               <ServiceCard service={service} />
             </li>
